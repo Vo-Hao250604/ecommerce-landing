@@ -5,12 +5,13 @@
 @import "base/variables.css";
 @import "base/initial.css";
 
-/* Blocks */
-@import "blocks/header.css";
-@import "blocks/hero.css";
-@import "blocks/button.css";
-@import "blocks/sections.css";
-@import "blocks/card.css";
+/* Component */
+@import "components/header.css";
+@import "components/hero.css";
+@import "components/section.css";
+@import "components/button.css";
+@import "components/category-card.css";
+@import "components/product-card.css";
 
 /* Utils */
 @import "utils/typography.css";

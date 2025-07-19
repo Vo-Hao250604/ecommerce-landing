@@ -1,0 +1,147 @@
+/* CARD PRODUCT */
+.product-card {
+	position: relative;
+	background: var(--surface-secondary);
+	cursor: pointer;
+	transition: filter 0.2s ease;
+}
+
+.product-card__image {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+}
+
+.product-card__content {
+	padding: 16px 16px 30px 16px;
+}
+
+.product-card__title {
+	text-align: start;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 120%;
+	color: var(--third);
+}
+
+.product-card__subtitle {
+	text-align: start;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 150%;
+	color: var(--secondary);
+	margin: 8px 0 8px 0;
+}
+
+.product-card__price-container {
+	text-align: start;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.product-card__price {
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 150%;
+	color: var(--third);
+}
+
+.product-card__old-price {
+	text-decoration: line-through;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	color: var(--secondary);
+}
+
+.product-card__red-badge {
+	position: absolute;
+	background-color: var(--red);
+	color: var(--background);
+	border-radius: 100%;
+	width: 48px;
+	height: 48px;
+	top: 24px;
+	right: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.product-card__menu {
+	position: absolute;
+	z-index: 1;
+}
+
+.product-card__button {
+	z-index: 1;
+}
+
+.product-card__overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(58, 58, 58, 0.72);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+	z-index: 1;
+}
+
+.product-card:hover .product-card__overlay {
+	opacity: 1;
+	visibility: visible;
+}
+.product-card__button {
+	background: white;
+	color: var(--primary);
+	border: none;
+	padding: 12px 52px;
+	font-weight: 600;
+	font-size: 16px;
+	cursor: pointer;
+	margin-bottom: 24px;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.product-card__button:hover {
+	background: var(--primary);
+	color: var(--background);
+}
+
+.product-card__actions {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.product-card__action {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	color: var(--background);
+	font-weight: 600;
+	font-size: 16px;
+	text-decoration: none;
+	transition: opacity 0.3s ease;
+	cursor: pointer;
+}
+
+.product-card__action:hover {
+	opacity: 0.7;
+}
+
+.product-card__action-icon {
+	width: 16px;
+	height: 16px;
+	filter: brightness(0) invert(1); /* Makes icon white */
+}

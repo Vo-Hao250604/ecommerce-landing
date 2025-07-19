@@ -1,0 +1,43 @@
+/* Category Card Block */
+.category-card {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card__image {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    transition: filter 0.3s ease;
+}
+
+.category-card__title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: var(--foreground);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .category-card__image {
+        height: 360px;
+    }
+}
+
+@media (max-width: 768px) {
+    .category-card__image {
+        height: 280px;
+    }
+
+    .category-card__title {
+        font-size: 20px;
+    }
+}

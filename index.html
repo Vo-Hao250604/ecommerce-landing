@@ -5,12 +5,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Interior eCommerce Landing Page</title>
 		<link rel="stylesheet" href="css/style.css" />
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.js"
+			integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+			crossorigin="anonymous"
+		></script>
 	</head>
 	<body>
 		<!-- === Header === -->
 		<header class="header">
 			<div class="header__brand">
-				<img src="images/logo.svg" class="header__logo" />
+				<img src="images/logo.svg" class="header__logo" alt="furniro logo" />
 				<h2 class="header__title">Furniro</h2>
 			</div>
 
@@ -56,7 +61,7 @@
 				</div>
 			</section>
 
-      <!-- CATEGORY SECTION -->
+			<!-- CATEGORY SECTION -->
 			<section class="section section--browse-range">
 				<div class="section__header">
 					<h2 class="section__title">Browse The Range</h2>
@@ -66,37 +71,140 @@
 				</div>
 
 				<div class="grid grid--3-columns">
-					<div class="card--category">
+					<div class="category-card">
 						<img
 							src="images/category-section/dining.png"
-							class="card--category__image"
+							class="category-card__image"
 							alt="Dining"
 						/>
-						<h3 class="card--category__title">Dining</h3>
+						<h3 class="category-card__title">Dining</h3>
 					</div>
-					<div class="card--category">
+					<div class="category-card">
 						<img
 							src="images/category-section/living.png"
-							class="card--category__image"
+							class="category-card__image"
 							alt="Living"
 						/>
-						<h3 class="card--category__title">Living</h3>
+						<h3 class="category-card__title">Living</h3>
 					</div>
-					<div class="card--category">
+					<div class="category-card">
 						<img
 							src="images/category-section/bedroom.png"
-							class="card--category__image"
+							class="category-card__image"
 							alt="Bedroom"
 						/>
-						<h3 class="card--category__title">Bedroom</h3>
+						<h3 class="category-card__title">Bedroom</h3>
 					</div>
 				</div>
 			</section>
-	
+
+			<!-- PRODUCT SECTION -->
+			<section class="section section--products">
+				<div class="section__header">
+					<h2 class="section__title">Our Products</h2>
+				</div>
+
+				<!-- Products grid -->
+				<div class="grid grid--4-columns" id="productsGrid">
+					<!-- TODO: Load dữ liệu từ Ajax -->
+					<div class="product-card">
+						<img
+							src="images/product/image 1.png"
+							class="product-card__image"
+							alt="Syltherine"
+						/>
+						<div class="product-card__overlay">
+							<a href="#" class="product-card__button">Add to cart</a>
+
+							<div class="product-card__actions">
+								<a href="#" class="product-card__action">
+									<img
+										src="images/icons/share.svg"
+										class="product-card__action-icon"
+										alt="Share"
+									/>
+									Share
+								</a>
+								<a href="#" class="product-card__action">
+									<img
+										src="images/icons/compare.svg"
+										class="product-card__action-icon"
+										alt="Compare"
+									/>
+									Compare
+								</a>
+								<a href="#" class="product-card__action">
+									<img
+										src="images/icons/heart.svg"
+										class="product-card__action-icon"
+										alt="Like"
+									/>
+									Like
+								</a>
+							</div>
+						</div>
+						<div class="product-card__red-badge">-30%</div>
+						<div class="product-card__content">
+							<h3 class="product-card__title">Syltherine</h3>
+							<p class="product-card__subtitle">Stylish cafe chair</p>
+							<div class="product-card__price-container">
+								<p class="product-card__price">Rp 2.500.000</p>
+								<p class="product-card__old-price">Rp 3.500.000</p>
+							</div>
+						</div>
+					</div>
+					<div class="product-card">
+						<img
+							src="images/product/image 2.png"
+							class="product-card__image"
+							alt="Syltherine"
+						/>
+						<div class="product-card__overlay">
+							<a href="#" class="product-card__button">Add to cart</a>
+
+							<div class="product-card__actions">
+								<a href="#" class="product-card__action">
+									<img
+										src="images/icons/share.svg"
+										class="product-card__action-icon"
+										alt="Share"
+									/>
+									Share
+								</a>
+								<a href="#" class="product-card__action">
+									<img
+										src="images/icons/compare.svg"
+										class="product-card__action-icon"
+										alt="Compare"
+									/>
+									Compare
+								</a>
+								<a href="#" class="product-card__action">
+									<img
+										src="images/icons/heart.svg"
+										class="product-card__action-icon"
+										alt="Like"
+									/>
+									Like
+								</a>
+							</div>
+						</div>
+						<div class="product-card__content">
+							<h3 class="product-card__title">Leviosa</h3>
+							<p class="product-card__subtitle">Stylish cafe chair</p>
+							<div class="product-card__price-container">
+								<p class="product-card__price">Rp 2.500.000</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<!-- === Content Below: Người 2 tiếp tục từ đây === -->
 			<!-- About, Testimonial, Blog, Newsletter, Footer sẽ do Người 2 thêm ở đây -->
 		</main>
 
+		<!-- <script src="js/products.js"></script> -->
 		<script src="js/main.js"></script>
 	</body>
 </html>
