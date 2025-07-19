@@ -9,8 +9,15 @@
 
 	--surface: #f9f1e7;
 	--surface-secondary: #f4f5f7;
+
+	--divider: #d9d9d9;
+
+	/* Color */
 	--red: #e97171;
 	--green: #2ec1ac;
+	--gray--low: #9f9f9f;
+	--white: #fff;
+	--black: #000;
 
 	/* Typography */
 	--font-primary: "Poppins", sans-serif;

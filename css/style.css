@@ -12,6 +12,7 @@
 @import "components/button.css";
 @import "components/category-card.css";
 @import "components/product-card.css";
+@import "components/footer.css";
 
 /* Utils */
 @import "utils/typography.css";
