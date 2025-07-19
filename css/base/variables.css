@@ -1,0 +1,16 @@
+:root {
+	--primary: #b88e2f;
+	--primary-background: #fff3e3;
+    
+	--background: #fff;
+    --foreground: #000;
+	--secondary: #666666;
+
+	--surface: #f9f1e7;
+	--red: #e97171;
+	--green: #2ec1ac;
+
+	/* Typography */
+	--font-primary: "Poppins", sans-serif;
+	--font-secondary: "Montserrat", sans-serif;
+}

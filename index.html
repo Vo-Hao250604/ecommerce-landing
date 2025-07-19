@@ -1,27 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interior eCommerce Landing Page</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/components.css" />
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Interior eCommerce Landing Page</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<!-- === Header === -->
+		<header class="header">
+			<div class="header__brand">
+				<img src="images/logo.svg" class="header__logo" />
+				<h1 class="header__title">Furniro</h1>
+			</div>
 
-  <!-- === Header === -->
-  
+			<div class="header__pages">
+				<a href="#">Home</a>
+				<a href="#">Shop</a>
+				<a href="#">About</a>
+				<a href="#">Contact</a>
+			</div>
 
-  <!-- === Hero Section === -->
-  
+			<div class="header__actions">
+				<img src="images/icons/account.svg" />
+				<img src="images/icons/search.svg" />
+				<img src="images/icons/heart.svg" />
+				<img src="images/icons/cart.svg" />
+			</div>
+		</header>
 
-  <!-- === Product Section === -->
-  
+		<!-- Tạo khoảng ngăn cách giữa header với nội dung của nó -->
+		<div class="header-spacer"></div>
 
-  <!-- === Content Below: Người 2 tiếp tục từ đây === -->
+		<main>
+			<!-- === Hero Section === -->
+			<div class="hero">
+				<img src="images/hero-picture.jpg" class="hero__image" />
 
-  <!-- About, Testimonial, Blog, Newsletter, Footer sẽ do Người 2 thêm ở đây -->
+				<div class="hero__card">
+					<p class="hero__card__tag">New Arrival</p>
+					<h1 class="hero__card__title">
+						Discover Our<br />
+						New Collection
+					</h1>
+					<p class="hero__card__paragraph">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+						tellus, luctus nec ullamcorper mattis.
+					</p>
 
-  <script src="js/main.js"></script>
-</body>
+					<button class="button">BUY NOW</button>
+				</div>
+			</div>
+
+			<div style="background-color: white">
+				<!-- === Product Section === -->
+				<!-- === Content Below: Người 2 tiếp tục từ đây === -->
+
+				<!-- About, Testimonial, Blog, Newsletter, Footer sẽ do Người 2 thêm ở đây -->
+			</div>
+		</main>
+
+		<script src="js/main.js"></script>
+	</body>
 </html>

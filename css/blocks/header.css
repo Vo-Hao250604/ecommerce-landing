@@ -1,0 +1,96 @@
+/* Header Block */
+.header {
+	position: fixed;
+	width: 100%;
+	height: 100px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 0 20px;
+	backdrop-filter: blur(10px);
+	background: #ffffff55;
+	z-index: 10;
+}
+
+.header-spacer {
+	height: 100px; /* Bằng với chiều cao header */
+}
+
+/* Header Elements */
+.header__brand {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.header__logo {
+	width: 50px;
+	height: 32px;
+}
+
+.header__title {
+	font-family: var(--font-secondary);
+	font-weight: 700;
+	font-size: 34px;
+	color: var(--foreground);
+}
+
+.header__pages {
+	display: flex;
+	align-items: center;
+	gap: 75px;
+}
+
+.header__pages > a {
+    color: var(--foreground);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+}
+
+/* Tạo hiệu ứng hover underline*/
+.header__pages > a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--foreground);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.header__pages > a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+.header__actions {
+	display: flex;
+	align-items: center;
+	gap: 45px;
+}
+
+.header__actions > img {
+	width: 22px;
+	height: 22px;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+}
+
+/* Header Modifiers */
+.header__actions > img:hover {
+	opacity: 0.5;
+}
+
+.header--fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background: white;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

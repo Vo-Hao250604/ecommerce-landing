@@ -1,0 +1,48 @@
+.font-montserrat {
+	font-family: var(--font-secondary) !important;
+	font-optical-sizing: auto;
+	font-style: normal;
+}
+
+.font-bold {
+	font-weight: 700;
+}
+
+.font-semibold {
+	font-weight: 600;
+}
+
+.font-medium {
+	font-weight: 500;
+}
+
+.font-regular {
+	font-weight: 400;
+}
+
+.text-space-md {
+	letter-spacing: 3px;
+}
+
+/* Text sizes */
+.text-xs {
+	font-size: 12px;
+}
+.text-sm {
+	font-size: 14px;
+}
+.text-base {
+	font-size: 16px;
+}
+.text-lg {
+	font-size: 18px;
+}
+.text-xl {
+	font-size: 20px;
+}
+.text-2xl {
+	font-size: 24px;
+}
+.text-3xl {
+	font-size: 52px;
+}
