@@ -9,6 +9,9 @@
 @import "blocks/header.css";
 @import "blocks/hero.css";
 @import "blocks/button.css";
+@import "blocks/sections.css";
+@import "blocks/card.css";
 
 /* Utils */
 @import "utils/typography.css";
+@import "utils/layout.css";

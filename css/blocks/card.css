@@ -1,0 +1,24 @@
+.card--category {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card--category:hover {
+    transform: translateY(-5px);
+}
+
+.card--category__image {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.card--category__title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: var(--foreground);
+}

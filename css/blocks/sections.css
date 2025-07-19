@@ -1,0 +1,37 @@
+.section {
+	padding: 56px 0;
+	text-align: center;
+}
+
+.section__header {
+	margin-bottom: 62px;
+}
+
+.section__title {
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 48px;
+	color: var(--foreground);
+	margin-bottom: 8px;
+}
+
+.section__subtitle {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 30px;
+	color: var(--secondary);
+}
+
+.section--browse-range .section__title {
+	font-size: 32px;
+	color: var(--foreground);
+}
+
+.section--products .section__title {
+	font-size: 40px;
+	margin-bottom: 32px;
+}
+
+.section--products .section__header {
+	margin-bottom: 32px;
+}
