@@ -18,6 +18,117 @@
 @import "utils/typography.css";
 @import "utils/layout.css";
 
+/* Hero banner for Shop page */
+.shop-hero {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.shop-hero__background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: blur(3px) brightness(0.8);
+  z-index: 1;
+}
+
+.shop-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #000;
+}
+
+.shop-hero__title {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.shop-hero__breadcrumb {
+  font-size: 14px;
+  color: #666;
+}
+
+.shop-hero__breadcrumb a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.shop-hero__breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.arrow {
+  margin: 0 6px;
+  color: #000;
+  font-weight: 800;
+}
+
+/* === toolbar: filter, sort, view === */
+.shop-toolbar {
+  background-color: #f9f1e7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  font-size: 16px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.toolbar__left,
+.toolbar__right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.toolbar__filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.toolbar__view img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.toolbar__results {
+  color: #888;
+}
+
+.toolbar__right label {
+  margin-right: 6px;
+  font-weight: 500;
+}
+
+.toolbar__right input[type="number"],
+.toolbar__right select {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60px;
+}
+
 /* === Product grid === */
 .product-card {
   background-color: #f4f5f7;
@@ -345,24 +456,160 @@
   font-weight: bold;
 }
 
-.show-more-wrapper {
-  text-align: center;
-  margin-top: 32px;
+/* === Toolbar: Bộ lọc "Sort by" và "Show" === */
+.product-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  font-family: 'Poppins', sans-serif;
 }
 
-.button--outline {
-  padding: 20px 54px;
+.product-toolbar label {
   font-size: 14px;
-  font-weight: 600;
-  border: 1px solid #b88e2f;
-  background-color: transparent;
-  color: #b88e2f;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  color: #333;
+  font-weight: 500;
 }
 
-.button--outline:hover {
-  background-color: #b88e2f;
-  color: white;
+.product-toolbar select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
   cursor: pointer;
+}
+
+.product-toolbar select:focus {
+  border-color: #b88e2f;
+  box-shadow: 0 0 0 2px rgba(184, 142, 47, 0.2);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .product-toolbar {
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+/* === Toolbar Right (Show + Sort By) === */
+.toolbar_right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  font-family: 'Poppins', sans-serif;
+}
+
+.toolbar_right label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.toolbar_right select {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.toolbar_right select:focus {
+  outline: none;
+  border-color: #b88e2f;
+  box-shadow: 0 0 0 2px rgba(184, 142, 47, 0.25);
+}
+
+/* Responsive: căn giữa trên thiết bị nhỏ */
+@media (max-width: 768px) {
+  .toolbar_right {
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* HD screens (≥1280px): Giữ nguyên mặc định */
+
+@media (max-width: 1024px) {
+  .grid--4-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .shop-hero {
+    height: 250px;
+  }
+
+  .shop-hero__title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Điều chỉnh banner */
+  .shop-hero {
+    height: 180px;
+    padding: 0 20px;
+  }
+
+  .shop-hero__title {
+    font-size: 24px;
+  }
+
+  .shop-hero__breadcrumb {
+    font-size: 12px;
+  }
+
+  /* Điều chỉnh lưới sản phẩm: 2 cột */
+  .grid--4-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+/* Header menu dạng hàng dọc */
+
+  /* Footer */
+  .footer__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer__column {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile nhỏ: 1 cột */
+  .grid--4-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-hero__title {
+    font-size: 20px;
+  }
 }

@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Interior eCommerce Landing Page</title>
-		<link rel="stylesheet" href="css/style.css" />
+		<title>Shop | Furniro</title>
+		<link rel="stylesheet" href="css/shop.css" />
 		<script
 			src="https://code.jquery.com/jquery-3.7.1.js"
 			integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
@@ -36,82 +36,75 @@
 
 		<!-- Tạo khoảng ngăn cách giữa header với nội dung của nó -->
 		<div class="header-spacer"></div>
+		
+        <!-- Hero Banner Shop === -->
+        <section class="shop-hero">
+            <img src="images/Rectangle 1.png" alt="Shop Banner" class="shop-hero__background" />
+            <div class="shop-hero__content">
+                <h1 class="shop-hero__title">Shop</h1>
+                <p class="shop-hero__breadcrumb">
+                    <a href="index.html">Home ></a>
+                    <span class="arrow">Shop</span>
+                </p>
+            </div>
+        </section>
 
-		<main>
-			<!-- === Hero Section === -->
-			<section class="hero">
-				<img
-					src="images/hero-picture.jpg"
-					class="hero__image"
-					alt="hero image with some furnitures"
-				/>
-
-				<div class="hero__card">
-					<p class="hero__card__tag">New Arrival</p>
-					<h1 class="hero__card__title">
-						Discover Our<br />
-						New Collection
-					</h1>
-					<p class="hero__card__paragraph">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-						tellus, luctus nec ullamcorper mattis.
-					</p>
-
-					<button class="button">BUY NOW</button>
+		<!-- Toolbar: filter, view, sort-->
+		<section class="shop-toolbar">
+			<div class="toolbar__left">
+				<div class="toolbar__filter">
+					<img src="images/icons/system-uicons_filtering.png" alt="Filter">
+					<span>Filter</span>
 				</div>
-			</section>
-
-			<!-- CATEGORY SECTION -->
-			<section class="section section--browse-range">
-				<div class="section__header">
-					<h2 class="section__title">Browse The Range</h2>
-					<p class="section__subtitle">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					</p>
+			
+				<div class="toolbar_view">
+					<img src="images/icons/ci_grid-big-round.png" alt="Grid View">
+					<img src="images/icons/bi_view-list.png" alt="List View">
 				</div>
 
-				<div class="grid grid--3-columns">
-					<div class="category-card">
-						<img
-							src="images/category-section/dining.png"
-							class="category-card__image"
-							alt="Dining"
-						/>
-						<h3 class="category-card__title">Dining</h3>
-					</div>
-					<div class="category-card">
-						<img
-							src="images/category-section/living.png"
-							class="category-card__image"
-							alt="Living"
-						/>
-						<h3 class="category-card__title">Living</h3>
-					</div>
-					<div class="category-card">
-						<img
-							src="images/category-section/bedroom.png"
-							class="category-card__image"
-							alt="Bedroom"
-						/>
-						<h3 class="category-card__title">Bedroom</h3>
-					</div>
+				<div class="toolbar_results" id="resultsInfo">
+					Showing 1-16 of 32 results 
 				</div>
-			</section>
+			</div>
 
-			<!-- PRODUCT SECTION -->
-			<section class="section section--products">
-				<div class="section__header">
-					<h2 class="section__title">Our Products</h2>
-				</div>
+			<div class="toolbar_right">
+				<label for="showCount">Show:</label>
+				<select id="showCount">
+					<option value="6" selected>6</option>
+					<option value="8">8</option>
+					<option value="12">12</option>
+				</select>
 
-				<!-- Products grid -->
-				<div class="grid grid--4-columns" id="productGrid"></div>
-				<div class="show-more-wrapper">
-					<button id="showMoreBtn" class="button button--outline">Show More</button>
-				</div>
+				<label for="sortBy">Sort by:</label>
+				<select id="sortBy">
+					<option value="default">Default</option>
+					<option value="Price: Low to High">Price: Low to High</option>
+					<option value="Price: High to Low">Price: High to Low</option>
+					<option value="Newest">Newest</option>
+				</select>
+			</div>
 
-			</section>
-		</main>
+		</section>
+
+
+		<!-- Products Grid -->
+		<section class="section section--products">
+			<div class="grid grid--4-columns" id="productGrid"></div>
+			<!-- Pagination -->
+			<div class="pagination">
+				<a href="#" class="page active">1</a>
+				<a href="#" class="page">2</a>
+				<a href="#" class="page">3</a>
+				<a href="#" class="page">Next</a>
+			</div>
+
+		</section>
+
+
+
+
+
+
 
 		<!-- === Footer === -->
 		<footer class="footer">
@@ -172,7 +165,12 @@
 				</div>
 			</div>
 		</footer>
-		<!-- <script src="js/products.js"></script> -->
+		<script src="data/products.js"></script>
 		<script src="js/main.js"></script>
+		<script>
+			document.getElementById("menuToggle").addEventListener("click", function () {
+				document.getElementById("navbar").classList.toggle("active");
+			});  
+		</script>
 	</body>
 </html>
