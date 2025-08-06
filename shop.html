@@ -58,9 +58,11 @@
 				</div>
 			
 				<div class="toolbar_view">
-					<img src="images/icons/ci_grid-big-round.png" alt="Grid View">
-					<img src="images/icons/bi_view-list.png" alt="List View">
+					<img src="images/icons/ci_grid-big-round.png" alt="Grid View" id="gridViewBtn">
+					<img src="images/icons/bi_view-list.png" alt="List View" id="listViewBtn">
 				</div>
+
+				<div class="toolbar__divider"></div>
 
 				<div class="toolbar_results" id="resultsInfo">
 					Showing 1-16 of 32 results 
@@ -70,9 +72,9 @@
 			<div class="toolbar_right">
 				<label for="showCount">Show:</label>
 				<select id="showCount">
-					<option value="6" selected>6</option>
-					<option value="8">8</option>
-					<option value="12">12</option>
+					<option value="8" selected>8</option>
+					<option value="16">16</option>
+					<option value="24">24</option>
 				</select>
 
 				<label for="sortBy">Sort by:</label>
@@ -91,7 +93,7 @@
 		<section class="section section--products">
 			<div class="grid grid--4-columns" id="productGrid"></div>
 			<!-- Pagination -->
-			<div class="pagination">
+			<div class="pagination" id="pagination">
 				<a href="#" class="page active">1</a>
 				<a href="#" class="page">2</a>
 				<a href="#" class="page">3</a>
@@ -101,7 +103,37 @@
 		</section>
 
 
-
+		<!-- === Service Info Section === -->
+		<section class="service-info">
+		<div class="service-info__item">
+			<img src="images/icons/trophy 1.png" alt="High Quality" />
+			<div>
+			<h4>High Quality</h4>
+			<p>crafted from top materials</p>
+			</div>
+		</div>
+		<div class="service-info__item">
+			<img src="images/icons/guarantee.png" alt="Warranty Protection" />
+			<div>
+			<h4>Warranty Protection</h4>
+			<p>Over 2 years</p>
+			</div>
+		</div>
+		<div class="service-info__item">
+			<img src="images/icons/shipping.png" alt="Free Shipping" />
+			<div>
+			<h4>Free Shipping</h4>
+			<p>Order over 150 $</p>
+			</div>
+		</div>
+		<div class="service-info__item">
+			<img src="images/icons/customer-support.png" alt="24 / 7 Support" />
+			<div>
+			<h4>24 / 7 Support</h4>
+			<p>Dedicated support</p>
+			</div>
+		</div>
+		</section>
 
 
 

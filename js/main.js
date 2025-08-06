@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 let products = [];
-let currentPage = 1;
-let itemsPerPage = 16;
+let currentPage = 1;   
+let itemsPerPage = 16; // Số lượng sản phẩm hiển thị mỗi trang
 let sortOption = "default";
 
 // Định dạng tiền tệ
@@ -13,6 +13,7 @@ function formatCurrency(num) {
   return "Rp " + num.toLocaleString("id-ID");
 }
 
+// Hàm render sản phẩm
 function renderProducts() {
   let sortedProducts = [...products];
 
@@ -24,8 +25,9 @@ function renderProducts() {
   }
 
   // Phân trang
-  let start = (currentPage - 1) * itemsPerPage;
-  let paginated = sortedProducts.slice(start, start + itemsPerPage);
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const paginated = sortedProducts.slice(start, end);
 
   let html = paginated.map(p => `
     <div class="product-card">
@@ -38,10 +40,8 @@ function renderProducts() {
           <a href="#"><img src="images/icons/Heart.png" alt="Like" /> Like</a>
         </div>
       </div>
-
       ${p.discount ? `<div class="product-card__badge sale">-${p.discount}%</div>` : ""}
       ${p.isNew ? `<div class="product-card__badge new">New</div>` : ""}
-
       <div class="product-card__content">
         <h3 class="product-card__title">${p.name}</h3>
         <p class="product-card__subtitle">${p.description}</p>
@@ -54,7 +54,8 @@ function renderProducts() {
   `).join("");
 
   $("#productGrid").html(html);
-  updateResultsInfo();
+  updateResultsInfo(sortedProducts.length);
+
 }
 
 function renderPagination() {
@@ -74,13 +75,21 @@ function renderPagination() {
   $(".page").on("click", function (e) {
     e.preventDefault();
     let page = parseInt($(this).data("page"));
-    if (!isNaN(page) && page > 0 && page <= totalPages) {
+    if (!isNaN(page)) {
       currentPage = page;
       renderProducts();
       renderPagination();
     }
   });
 }
+
+// Hàm cập nhật kết quả hiển thị
+function updateResultsInfo(totalItems) {
+  const start = (currentPage - 1) * itemsPerPage + 1;
+  const end = Math.min(currentPage * itemsPerPage, totalItems);
+  $("#resultsInfo").text(`Showing ${start}-${end} of ${totalItems} results`);
+}
+
 
 $(document).ready(function () {
   // Load dữ liệu JSON 1 lần
@@ -107,12 +116,6 @@ $(document).ready(function () {
   });
 });
 
-function updateResultsInfo() {
-    const total = products.length;
-    const start = (currentPage - 1) * itemsPerPage + 1;
-    const end = Math.min(currentPage * itemsPerPage, total);
-    $("#resultsInfo").text(`Showing ${start}-${end} of ${total} results`);
-}
 
 $("#showCount").on("change", function () {
     itemsPerPage = parseInt($(this).val());
@@ -121,3 +124,12 @@ $("#showCount").on("change", function () {
     updateResultsInfo();
 });
 
+$(document).ready(function () {
+  $("#gridViewBtn").on("click", function () {
+    $("#productGrid").removeClass("list-view").addClass("grid-view");
+  });
+
+  $("#listViewBtn").on("click", function () {
+    $("#productGrid").removeClass("grid-view").addClass("list-view");
+  });
+});

@@ -83,7 +83,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
+  padding: 16px 40px;
   font-size: 16px;
   flex-wrap: wrap;
   gap: 16px;
@@ -100,25 +100,42 @@
 .toolbar__filter {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-weight: 500;
-  cursor: pointer;
+  gap: 6px;
+  font-weight: 600;
+  color: #000;
+}
+
+.toolbar_view {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .toolbar__view img {
   width: 20px;
   height: 20px;
-  margin-right: 8px;
   cursor: pointer;
 }
 
 .toolbar__results {
-  color: #888;
+  font-weight: 500;
+  color: #000;
+  min-width: 160px;
 }
 
 .toolbar__right label {
-  margin-right: 6px;
+  margin-right: 4px;
   font-weight: 500;
+  color: #000;
+}
+
+.toolbar__right select {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
 }
 
 .toolbar__right input[type="number"],
@@ -127,6 +144,56 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 60px;
+}
+
+/* === Toolbar Right (Show + Sort By) === */
+.toolbar_right label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.toolbar_right select {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.toolbar_right select:focus {
+  outline: none;
+  border-color: #b88e2f;
+  box-shadow: 0 0 0 2px rgba(184, 142, 47, 0.25);
+}
+
+@media (max-width: 768px) {
+  .shop-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toolbar__left,
+  .toolbar__right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.toolbar__divider {
+  border-left: 3px solid #ccc;
+  margin: 0 8px;
+  color: #ccc;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  height: 36px;
 }
 
 /* === Product grid === */
@@ -498,56 +565,91 @@
   }
 }
 
-/* === Toolbar Right (Show + Sort By) === */
-.toolbar_right {
+
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.list-view {
   display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.list-view .product-card {
+  display: flex;
+  gap: 24px;
+}
+
+.list-view .product-card__image {
+  width: 40%;
+  object-fit: cover;
+}
+
+.list-view .product-card__content {
+  text-align: left;
+  padding: 16px;
+  width: 60%;
+}
+
+/* === Service Info Section === */
+.service-info {
+  background-color: #f9f1e7;
+  display: flex;
+  justify-content: center;        
   align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-  justify-content: flex-end;
+  padding: 80px 60px;
+  margin-top: 60px;
+  gap: 100px;                     
   flex-wrap: wrap;
-  font-family: 'Poppins', sans-serif;
 }
 
-.toolbar_right label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
+.service-info__item {
+  display: flex;
+  align-items: flex-start;         
+  gap: 16px;
+  flex-direction: row;
+  min-width: 300px;
+  max-width: 400px;
 }
 
-.toolbar_right select {
-  padding: 8px 12px;
-  font-size: 14px;
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  font-family: inherit;
-  cursor: pointer;
+.service-info__item img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }
 
-.toolbar_right select:focus {
-  outline: none;
-  border-color: #b88e2f;
-  box-shadow: 0 0 0 2px rgba(184, 142, 47, 0.25);
+.service-info__item h4 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
 }
 
-/* Responsive: căn giữa trên thiết bị nhỏ */
-@media (max-width: 768px) {
-  .toolbar_right {
-    justify-content: center;
-    gap: 12px;
+.service-info__item p {
+  margin: 4px 0 0;
+  font-size: 18px;
+  color: #777;
+}
+
+
+@media (max-width: 1024px) {
+  .service-info {
+    gap: 48px;
+    padding: 32px;
   }
 }
 
-
-
-
-
-
-
-
+@media (max-width: 768px) {
+  .service-info {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 24px;
+  }
+}
 
 
 
@@ -611,5 +713,131 @@
 
   .shop-hero__title {
     font-size: 20px;
+  }
+}
+
+
+/* CONTACT */
+.contact-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.contact-section p {
+  font-size: 14px;
+  color: #888;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+}
+
+/* Grid layout chia đều */
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Bên trái: Thông tin liên hệ */
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: left;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.contact-item img {
+  width: 24px;
+  margin-top: 4px;
+}
+
+.contact-item h4 {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.contact-item p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Bên phải: Form */
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.contact-form label {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: none;
+  width: 100%;
+}
+
+.contact-form textarea {
+  min-height: 100px;
+}
+
+.contact-form button {
+  padding: 12px;
+  background-color: #b88e2f;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #a67925;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info,
+  .contact-form {
+    max-width: 100%;
+  }
+
+  .contact-form {
+    padding-top: 24px;
   }
 }
