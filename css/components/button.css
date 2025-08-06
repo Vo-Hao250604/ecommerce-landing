@@ -2,15 +2,30 @@
 	background-color: var(--primary);
 	font-weight: 600;
 	color: var(--background);
-	padding: 25px 72px;
 	transition: background-color 0.3s;
+	height: 48px;
+	width: 220px;
 	border-width: 1px;
-    border-style: solid;
+	border-style: solid;
 	border-color: var(--primary);
-    cursor: pointer;
+	cursor: pointer;
+}
+
+.button--big {
+	height: 74px;
+}
+
+.button--outline {
+	color: var(--primary);
+	background: var(--background);
 }
 
 .button:hover {
 	color: var(--primary);
 	background: var(--background);
+}
+
+.button--outline:hover {
+	color: var(--background);
+	background: var(--primary);
 }

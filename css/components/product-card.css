@@ -55,18 +55,25 @@
 	color: var(--secondary);
 }
 
-.product-card__red-badge {
-	position: absolute;
-	background-color: var(--red);
-	color: var(--background);
-	border-radius: 100%;
-	width: 48px;
-	height: 48px;
-	top: 24px;
-	right: 24px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.product-card__badge {
+    position: absolute;
+    color: var(--background);
+    border-radius: 100%;
+    width: 48px;
+    height: 48px;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card__badge--red {
+    background-color: var(--red);
+}
+
+.product-card__badge--green {
+    background-color: var(--green);
 }
 
 .product-card__menu {

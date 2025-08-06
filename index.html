@@ -57,13 +57,13 @@
 						tellus, luctus nec ullamcorper mattis.
 					</p>
 
-					<button class="button">BUY NOW</button>
+					<button class="button button--big">BUY NOW</button>
 				</div>
 			</section>
 
 			<!-- CATEGORY SECTION -->
 			<section class="section section--browse-range">
-				<div class="section__header">
+				<div>
 					<h2 class="section__title">Browse The Range</h2>
 					<p class="section__subtitle">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -100,105 +100,18 @@
 
 			<!-- PRODUCT SECTION -->
 			<section class="section section--products">
-				<div class="section__header">
+				<div>
 					<h2 class="section__title">Our Products</h2>
 				</div>
 
 				<!-- Products grid -->
-				<div class="grid grid--4-columns" id="productsGrid">
-					<!-- TODO: Load dữ liệu từ Ajax -->
-					<div class="product-card">
-						<img
-							src="images/product/image 1.png"
-							class="product-card__image"
-							alt="Syltherine"
-						/>
-						<div class="product-card__overlay">
-							<a href="#" class="product-card__button">Add to cart</a>
+				<div class="grid grid--4-columns" id="productsList"></div>
 
-							<div class="product-card__actions">
-								<a href="#" class="product-card__action">
-									<img
-										src="images/icons/share.svg"
-										class="product-card__action-icon"
-										alt="Share"
-									/>
-									Share
-								</a>
-								<a href="#" class="product-card__action">
-									<img
-										src="images/icons/compare.svg"
-										class="product-card__action-icon"
-										alt="Compare"
-									/>
-									Compare
-								</a>
-								<a href="#" class="product-card__action">
-									<img
-										src="images/icons/heart.svg"
-										class="product-card__action-icon"
-										alt="Like"
-									/>
-									Like
-								</a>
-							</div>
-						</div>
-						<div class="product-card__red-badge">-30%</div>
-						<div class="product-card__content">
-							<h3 class="product-card__title">Syltherine</h3>
-							<p class="product-card__subtitle">Stylish cafe chair</p>
-							<div class="product-card__price-container">
-								<p class="product-card__price">Rp 2.500.000</p>
-								<p class="product-card__old-price">Rp 3.500.000</p>
-							</div>
-						</div>
-					</div>
-					<div class="product-card">
-						<img
-							src="images/product/image 2.png"
-							class="product-card__image"
-							alt="Syltherine"
-						/>
-						<div class="product-card__overlay">
-							<a href="#" class="product-card__button">Add to cart</a>
-
-							<div class="product-card__actions">
-								<a href="#" class="product-card__action">
-									<img
-										src="images/icons/share.svg"
-										class="product-card__action-icon"
-										alt="Share"
-									/>
-									Share
-								</a>
-								<a href="#" class="product-card__action">
-									<img
-										src="images/icons/compare.svg"
-										class="product-card__action-icon"
-										alt="Compare"
-									/>
-									Compare
-								</a>
-								<a href="#" class="product-card__action">
-									<img
-										src="images/icons/heart.svg"
-										class="product-card__action-icon"
-										alt="Like"
-									/>
-									Like
-								</a>
-							</div>
-						</div>
-						<div class="product-card__content">
-							<h3 class="product-card__title">Leviosa</h3>
-							<p class="product-card__subtitle">Stylish cafe chair</p>
-							<div class="product-card__price-container">
-								<p class="product-card__price">Rp 2.500.000</p>
-							</div>
-						</div>
-					</div>
-				</div>
+				<button class="button button--outline">Show more</button>
 			</section>
+
+			<!-- INSPIRATION SECTION -->
+			<section class="section section--products"></section>
 		</main>
 
 		<!-- === Footer === -->
@@ -262,5 +175,8 @@
 		</footer>
 		<!-- <script src="js/products.js"></script> -->
 		<script src="js/main.js"></script>
+		<script type="module" src="js/api.js"></script>
+		<script type="module" src="js/utils.js"></script>
+		<script type="module" src="js/products.js"></script>
 	</body>
 </html>
