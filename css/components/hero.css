@@ -5,6 +5,10 @@
 	overflow: hidden;
 }
 
+.hero--shop {
+	height: 316px;
+}
+
 .hero__image {
 	width: 100%;
 	height: 100%;
@@ -12,15 +16,41 @@
 	object-position: 50% 50%;
 }
 
+.hero__title {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.hero__title > h1 {
+	font-weight: 500;
+	font-size: 48px;
+	color: var(--forground);
+}
+
+.hero--shop__image {
+	filter: blur(6px);
+	opacity: 50%;
+}
+
 .hero__card {
 	position: absolute;
-	bottom: 120px;
-	right: 120px;
 	background-color: var(--primary-background);
 	padding: 40px;
 	height: 440px;
 	width: 640px;
 	border-radius: 10px;
+}
+
+.hero__card--home {
+	bottom: 120px;
+	right: 120px;
 }
 
 .hero__card__tag {

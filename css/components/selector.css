@@ -1,0 +1,18 @@
+.selector {
+	border-width: 0px;
+	border-radius: 0px;
+
+	background-color: var(--background);
+	color: var(--gray-low);
+	appearance: none;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 400;
+
+	min-height: 55px;
+	min-width: 55px;
+}
+
+.selector--md {
+	width: 188px;
+}

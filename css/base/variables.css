@@ -1,6 +1,7 @@
 :root {
 	--primary: #b88e2f;
 	--primary-background: #fff3e3;
+	--primary-surface: #f9f1e7;
 
 	--background: #fff;
 	--foreground: #333;
@@ -15,7 +16,7 @@
 	/* Color */
 	--red: #e97171;
 	--green: #2ec1ac;
-	--gray--low: #9f9f9f;
+	--gray-low: #9f9f9f;
 	--white: #fff;
 	--black: #000;
 

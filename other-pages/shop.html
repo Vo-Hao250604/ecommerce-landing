@@ -3,7 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Interior eCommerce Landing Page</title>
+		<title>Shop | Furniro</title>
+
+		<base href="../" />
+
 		<link rel="stylesheet" href="css/style.css" />
 		<script
 			src="https://code.jquery.com/jquery-3.7.1.js"
@@ -21,9 +24,9 @@
 
 			<div class="header__pages">
 				<a href="index.html">Home</a>
-				<a href="other-pages/shop.html">Shop</a>
+				<a href="/other-pages/shop.html">Shop</a>
 				<a href="#">About</a>
-				<a href="other-pages/contact.html">Contact</a>
+				<a href="/other-pages/contact.html">Contact</a>
 			</div>
 
 			<div class="header__actions">
@@ -37,82 +40,116 @@
 		<!-- Tạo khoảng ngăn cách giữa header với nội dung của nó -->
 		<div class="header-spacer"></div>
 
-		<main>
-			<!-- === Hero Section === -->
-			<section class="hero">
+		<!-- Hero Banner Shop === -->
+		<section class="hero hero--shop">
+			<img
+				src="images/hero-picture-2.jpg"
+				class="hero__image hero--shop__image"
+				alt="hero image with some furnitures"
+			/>
+
+			<div class="hero__title">
+				<h1 class="hero__title-heading">Shop</h1>
+				<p>
+					<a href="index.html" class="breadcrumbs">Home ></a>
+					<span>Shop</span>
+				</p>
+			</div>
+		</section>
+
+		<!-- Toolbar: filter, view, sort-->
+		<section class="toolbar toolbar--shop">
+			<div class="toolbar__item-container">
+				<div class="toolbar__filter-item">
+					<img
+						src="images/icons/control.svg"
+						alt="filter icon"
+						width="19px"
+						height="16px"
+					/>
+					<span>Filter</span>
+				</div>
 				<img
-					src="images/hero-picture-1.jpg"
-					class="hero__image"
-					alt="hero image with some furnitures"
+					src="images/icons/view-grid.svg"
+					alt="grid view"
+					width="19px"
+					height="16px"
 				/>
-
-				<div class="hero__card hero__card--home">
-					<p class="hero__card__tag">New Arrival</p>
-					<h1 class="hero__card__title">
-						Discover Our<br />
-						New Collection
-					</h1>
-					<p class="hero__card__paragraph">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-						tellus, luctus nec ullamcorper mattis.
-					</p>
-
-					<button class="button button--big">BUY NOW</button>
+				<img
+					src="images/icons/view-list.svg"
+					alt="list view"
+					width="19px"
+					height="16px"
+				/>
+				<div class="toolbar__divider"></div>
+				<div class="toolbar__result" id="toolbarResult"></div>
+			</div>
+			<div class="toolbar__item-container">
+				<div class="toolbar__filter-item">
+					<label for="productsPerPage">Show</label>
+					<select
+						id="productsPerPage"
+						name="Number of products per page"
+						class="selector"
+					>
+						<option value="8">8</option>
+						<option value="16" selected>16</option>
+						<option value="32">32</option>
+					</select>
 				</div>
-			</section>
+				<div class="toolbar__filter-item">
+					<label for="productsSortBy">Sort by</label>
+					<select
+						id="productsSortBy"
+						name="Products sort by"
+						class="selector selector--md"
+					>
+						<option value="default" selected>Default</option>
+					</select>
+				</div>
+			</div>
+		</section>
 
-			<!-- CATEGORY SECTION -->
-			<section class="section section--browse-range">
+		<!-- Products SECTION -->
+		<section class="section section--products">
+			<!-- Products GRID -->
+			<div class="grid grid--4-columns" id="productsList"></div>
+
+			<!-- Pagination -->
+			<div class="pagination" id="pagination"></div>
+		</section>
+
+		<!-- === Service Info Section === -->
+		<section class="service-info">
+			<div class="service-info__item">
+				<img src="images/icons/trophy.svg" alt="High Quality" />
 				<div>
-					<h2 class="section__title">Browse The Range</h2>
-					<p class="section__subtitle">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					</p>
+					<h4>High Quality</h4>
+					<p>crafted from top materials</p>
 				</div>
-
-				<div class="grid grid--3-columns">
-					<div class="category-card">
-						<img
-							src="images/category-section/dining.png"
-							class="category-card__image"
-							alt="Dining"
-						/>
-						<h3 class="category-card__title">Dining</h3>
-					</div>
-					<div class="category-card">
-						<img
-							src="images/category-section/living.png"
-							class="category-card__image"
-							alt="Living"
-						/>
-						<h3 class="category-card__title">Living</h3>
-					</div>
-					<div class="category-card">
-						<img
-							src="images/category-section/bedroom.png"
-							class="category-card__image"
-							alt="Bedroom"
-						/>
-						<h3 class="category-card__title">Bedroom</h3>
-					</div>
-				</div>
-			</section>
-
-			<!-- PRODUCT SECTION -->
-			<section class="section section--products">
+			</div>
+			<div class="service-info__item">
+				<img src="images/icons/vertified.svg" alt="Warranty Protection" />
 				<div>
-					<h2 class="section__title">Our Products</h2>
+					<h4>Warranty Protection</h4>
+					<p>Over 2 years</p>
 				</div>
-
-				<!-- Products grid -->
-				<div class="grid grid--4-columns" id="productsList"></div>
-
-				<a class="button button--outline" href="/shop.html">Show more</a>
-			</section>
-
-			<!-- INSPIRATION SECTION -->
-			<section class="section section--products"></section>
-		</main>
+			</div>
+			<div class="service-info__item">
+				<img src="images/icons/handle-package.svg" alt="Free Shipping" />
+				<div>
+					<h4>Free Shipping</h4>
+					<p>Order over 150 $</p>
+				</div>
+			</div>
+			<div class="service-info__item">
+				<img src="images/icons/assistance-hotline.svg" alt="24 / 7 Support" />
+				<div>
+					<h4>24 / 7 Support</h4>
+					<p>Dedicated support</p>
+				</div>
+			</div>
+		</section>
 
 		<!-- === Footer === -->
 		<footer class="footer">
@@ -173,13 +210,15 @@
 				</div>
 			</div>
 		</footer>
-
 		<script type="module">
 			import { loadProducts, setupEventHandlers } from "./js/products.js";
 
 			$(document).ready(function () {
 				// Nạp và hiển thị danh sách sản phẩm
-				loadProducts(1, 8);
+				loadProducts(1, 16);
+
+				// Thêm sự kiện cho các nút bấm, các selector
+				setupEventHandlers();
 			});
 		</script>
 	</body>

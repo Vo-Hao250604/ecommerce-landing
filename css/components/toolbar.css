@@ -1,0 +1,49 @@
+.toolbar {
+	display: flex;
+	min-height: 100px;
+	background-color: var(--primary-surface);
+	align-items: center;
+}
+
+.toolbar--shop {
+	justify-content: space-around;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.toolbar__item-container {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+
+.toolbar__item-container > * {
+	cursor: pointer;
+}
+
+.toolbar__filter-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.toolbar__divider {
+	width: 2px;
+	height: 37px;
+	background-color: var(--gray-low);
+	cursor: default;
+}
+
+.toolbar__result {
+	cursor: default;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+@media (max-width: 992px) {
+	.toolbar {
+		gap: 32px;
+		padding: 16px;
+		flex-wrap: wrap;
+	}
+}

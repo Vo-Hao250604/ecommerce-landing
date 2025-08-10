@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contact | Furniro</title>
+
+		<base href="../" />
+
+		<link rel="stylesheet" href="css/style.css" />
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.js"
+			integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+			crossorigin="anonymous"
+		></script>
+	</head>
+
+	<body>
+		<!-- === Header === -->
+		<header class="header">
+			<div class="header__brand">
+				<img src="images/logo.svg" class="header__logo" alt="furniro logo" />
+				<h2 class="header__title">Furniro</h2>
+			</div>
+
+			<div class="header__pages">
+				<a href="index.html">Home</a>
+				<a href="other-pages/shop.html">Shop</a>
+				<a href="#">About</a>
+				<a href="other-pages/contact.html">Contact</a>
+			</div>
+
+			<div class="header__actions">
+				<img src="images/icons/account.svg" alt="account" />
+				<img src="images/icons/search.svg" alt="search" />
+				<img src="images/icons/heart.svg" alt="likes" />
+				<img src="images/icons/cart.svg" alt="shopping cart" />
+			</div>
+		</header>
+
+		<!-- Tạo khoảng ngăn cách giữa header với nội dung của nó -->
+		<div class="header-spacer"></div>
+
+		<!-- Hero Banner Shop === -->
+		<section class="hero hero--shop">
+			<img
+				src="images/hero-picture-2.jpg"
+				class="hero__image hero--shop__image"
+				alt="hero image with some furnitures"
+			/>
+
+			<div class="hero__title">
+				<img src="images/logo.svg" alt="logo icon" />
+				<h1 class="hero__title-heading">Contact</h1>
+				<p>
+					<a href="index.html" class="breadcrumbs">Home ></a>
+					<span>Contact</span>
+				</p>
+			</div>
+		</section>
+
+		<!-- Update contact section only -->
+		<section class="contact">
+			<h2 class="contact__title">Get In Touch With Us</h2>
+			<p class="contact__subtitle">
+				For More Information About Our Product & Services, Please Feel Free To
+				Drop Us An Email. Our Staff Always Be There To Help You Out. Do Not
+				Hesitate!
+			</p>
+
+			<div class="contact__grid">
+				<!-- Left: Contact Info -->
+				<div class="contact-info">
+					<div class="contact-info__item">
+						<img
+							src="images/icons/address.svg"
+							alt="contact adrress icon"
+							class="contact-info__icon"
+						/>
+						<div>
+							<h4 class="contact-info__title">Address</h4>
+							<p class="contact-info__text">
+								236 5th SE Avenue, New York NY10000, United States
+							</p>
+						</div>
+					</div>
+
+					<div class="contact-info__item">
+						<img
+							src="images/icons/phone.svg"
+							alt="contact phone icon"
+							class="contact-info__icon"
+						/>
+						<div>
+							<h4 class="contact-info__title">Phone</h4>
+							<p class="contact-info__text">
+								Mobile: +(84) 546-6789<br />Hotline: +(84) 456-6789
+							</p>
+						</div>
+					</div>
+
+					<div class="contact-info__item">
+						<img
+							src="images/icons/clock.svg"
+							alt="contact working time icon"
+							class="contact-info__icon"
+						/>
+						<div>
+							<h4 class="contact-info__title">Working Time</h4>
+							<p class="contact-info__text">
+								Monday-Friday: 9:00 - 22:00<br />
+								Saturday-Sunday: 9:00 - 21:00
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right: Contact Form -->
+				<form class="contact-form">
+					<label class="contact-form__label">Your name</label>
+					<input type="text" placeholder="Abc" class="contact-form__input" />
+
+					<label class="contact-form__label">Email address</label>
+					<input
+						type="email"
+						placeholder="Abc@def.com"
+						class="contact-form__input"
+					/>
+
+					<label class="contact-form__label">Subject</label>
+					<input
+						type="text"
+						placeholder="This is an optional"
+						class="contact-form__input"
+					/>
+
+					<label class="contact-form__label">Message</label>
+					<textarea
+						placeholder="Hi! I'd like to ask about"
+						class="contact-form__textarea"
+					></textarea>
+
+					<button type="submit" class="contact-form__button">Submit</button>
+				</form>
+			</div>
+		</section>
+
+		<!-- === Service Info Section === -->
+		<section class="service-info">
+			<div class="service-info__item">
+				<img src="images/icons/trophy 1.png" alt="High Quality" />
+				<div>
+					<h4>High Quality</h4>
+					<p>crafted from top materials</p>
+				</div>
+			</div>
+			<div class="service-info__item">
+				<img src="images/icons/guarantee.png" alt="Warranty Protection" />
+				<div>
+					<h4>Warranty Protection</h4>
+					<p>Over 2 years</p>
+				</div>
+			</div>
+			<div class="service-info__item">
+				<img src="images/icons/shipping.png" alt="Free Shipping" />
+				<div>
+					<h4>Free Shipping</h4>
+					<p>Order over 150 $</p>
+				</div>
+			</div>
+			<div class="service-info__item">
+				<img src="images/icons/customer-support.png" alt="24 / 7 Support" />
+				<div>
+					<h4>24 / 7 Support</h4>
+					<p>Dedicated support</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- === Footer === -->
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__grid">
+					<!-- Company Info -->
+					<div class="footer__column footer__column--brand">
+						<h2 class="footer__brand-title">Funiro.</h2>
+						<address class="footer__address">
+							400 University Drive Suite 200 Coral Gables,<br />
+							FL 33134 USA
+						</address>
+					</div>
+
+					<!-- Links -->
+					<div class="footer__column">
+						<h3 class="footer__heading">Links</h3>
+						<nav class="footer__nav">
+							<a href="#">Home</a>
+							<a href="other-pages/shop.html">Shop</a>
+							<a href="#">About</a>
+							<a href="other-pages/contact.html">Contact</a>
+						</nav>
+					</div>
+
+					<!-- Help -->
+					<div class="footer__column">
+						<h3 class="footer__heading">Help</h3>
+						<nav class="footer__nav">
+							<a href="#">Payment Options</a>
+							<a href="#">Returns</a>
+							<a href="#">Privacy Policies</a>
+						</nav>
+					</div>
+
+					<!-- Newsletter -->
+					<div class="footer__column footer__column--newsletter">
+						<h3 class="footer__heading">Newsletter</h3>
+						<form class="footer__newsletter-form">
+							<div class="footer__newsletter-wrapper">
+								<input
+									type="email"
+									class="footer__newsletter-input"
+									placeholder="Enter Your Email Address"
+									required
+								/>
+								<button type="submit" class="footer__newsletter-btn">
+									SUBSCRIBE
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<!-- Footer Bottom -->
+				<div class="footer__bottom">
+					<p class="footer__copyright">2023 furino. All rights reserved</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
