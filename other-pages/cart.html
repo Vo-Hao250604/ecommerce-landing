@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart | Furniro</title>
+
+    <base href="../" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- === Header === -->
+    <header class="header">
+        <div class="header__brand">
+            <img src="images/logo.svg" class="header__logo" alt="furniro logo" />
+            <h2 class="header__title">Furniro</h2>
+        </div>
+
+        <div class="header__pages">
+            <a href="index.html">Home</a>
+            <a href="other-pages/shop.html">Shop</a>
+            <a href="#">About</a>
+            <a href="other-pages/contact.html">Contact</a>
+        </div>
+
+        <div class="header__actions">
+            <img src="images/icons/account.svg" alt="account" />
+            <img src="images/icons/search.svg" alt="search" />
+            <img src="images/icons/heart.svg" alt="likes" />
+            <img src="images/icons/cart.svg" alt="shopping cart" />
+        </div>
+    </header>
+
+    <!-- Tạo khoảng ngăn cách giữa header với nội dung của nó -->
+    <div class="header-spacer"></div>
+
+    <!-- Hero Banner Shop === -->
+    <section class="hero hero--shop">
+        <img src="images/hero-picture-2.jpg" class="hero__image hero--shop__image"
+            alt="hero image with some furnitures" />
+
+        <div class="hero__title">
+            <img src="images/logo.svg" alt="logo icon" />
+            <h1 class="hero__title-heading">Cart</h1>
+            <p>
+                <a href="index.html" class="breadcrumbs">Home ></a>
+                <span>Cart</span>
+            </p>
+        </div>
+    </section>
+
+    <section class="cart-container">
+        <table id="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="cart-totals">
+            <h2>Cart Totals</h2>
+            <p id="subtotal-text">
+                <span>Subtotal</span>
+                <span id="subtotal-value">Rs. 0.00</span>
+            </p>
+            <p id="total-text">
+                <span>Total</span>
+                <span id="total-value">Rs. 0.00</span>
+            </p>
+            <button class="btn-checkout">Check Out</button>
+        </div>
+
+
+    </section>
+
+    <!-- === Service Info Section === -->
+    <section class="service-info">
+        <div class="service-info__item">
+            <img src="images/icons/trophy 1.png" alt="High Quality" />
+            <div>
+                <h4>High Quality</h4>
+                <p>crafted from top materials</p>
+            </div>
+        </div>
+        <div class="service-info__item">
+            <img src="images/icons/guarantee.png" alt="Warranty Protection" />
+            <div>
+                <h4>Warranty Protection</h4>
+                <p>Over 2 years</p>
+            </div>
+        </div>
+        <div class="service-info__item">
+            <img src="images/icons/shipping.png" alt="Free Shipping" />
+            <div>
+                <h4>Free Shipping</h4>
+                <p>Order over 150 $</p>
+            </div>
+        </div>
+        <div class="service-info__item">
+            <img src="images/icons/customer-support.png" alt="24 / 7 Support" />
+            <div>
+                <h4>24 / 7 Support</h4>
+                <p>Dedicated support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- === Footer === -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__grid">
+                <!-- Company Info -->
+                <div class="footer__column footer__column--brand">
+                    <h2 class="footer__brand-title">Funiro.</h2>
+                    <address class="footer__address">
+                        400 University Drive Suite 200 Coral Gables,<br />
+                        FL 33134 USA
+                    </address>
+                </div>
+
+                <!-- Links -->
+                <div class="footer__column">
+                    <h3 class="footer__heading">Links</h3>
+                    <nav class="footer__nav">
+                        <a href="#">Home</a>
+                        <a href="other-pages/shop.html">Shop</a>
+                        <a href="#">About</a>
+                        <a href="other-pages/contact.html">Contact</a>
+                    </nav>
+                </div>
+
+                <!-- Help -->
+                <div class="footer__column">
+                    <h3 class="footer__heading">Help</h3>
+                    <nav class="footer__nav">
+                        <a href="#">Payment Options</a>
+                        <a href="#">Returns</a>
+                        <a href="#">Privacy Policies</a>
+                    </nav>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer__column footer__column--newsletter">
+                    <h3 class="footer__heading">Newsletter</h3>
+                    <form class="footer__newsletter-form">
+                        <div class="footer__newsletter-wrapper">
+                            <input type="email" class="footer__newsletter-input" placeholder="Enter Your Email Address"
+                                required />
+                            <button type="submit" class="footer__newsletter-btn">
+                                SUBSCRIBE
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">2023 furino. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function formatPrice(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        function renderCart() {
+            let tbody = document.querySelector("#cart-table tbody");
+            tbody.innerHTML = "";
+            let subtotal = 0;
+
+            if (cart.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;">Your cart is empty</td></tr>`;
+                document.getElementById("subtotal-text").textContent = "Subtotal Rs. 0.00";
+                document.getElementById("total-text").textContent = "Total Rs. 0.00";
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                let itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                let row = `
+                <tr>
+                    <td>
+                        <img src="${item.images}" alt="${item.name}" style="width:60px; margin-right:10px; vertical-align:middle;">
+                        ${item.name}
+                    </td>
+                    <td>Rs. ${formatPrice(item.price)}</td>
+                    <td>
+                        <input type="number" min="1" value="${item.quantity}" data-index="${index}" class="qty-input" style="width:50px;">
+                    </td>
+                    <td>Rs. ${formatPrice(itemTotal)}</td>
+                    <td>
+                        <button class="delete-btn" data-index="${index}" style="background:none; border:none; cursor:pointer;">
+                            <img src="images/icons/delete.png" alt="Delete" style="width:20px;">
+                        </button>
+                    </td>
+                </tr>
+            `;
+                tbody.innerHTML += row;
+            });
+
+            document.getElementById("subtotal-text").textContent = `Subtotal Rs. ${formatPrice(subtotal)}`;
+            document.getElementById("total-text").textContent = `Total Rs. ${formatPrice(subtotal)}`;
+        }
+
+        // Xử lý thay đổi số lượng
+        document.addEventListener("input", function (e) {
+            if (e.target.classList.contains("qty-input")) {
+                let index = e.target.dataset.index;
+                let qty = parseInt(e.target.value);
+                cart[index].quantity = qty;
+                localStorage.setItem("cart", JSON.stringify(cart));
+                renderCart();
+            }
+        });
+
+        // Xử lý xóa sản phẩm
+        document.addEventListener("click", function (e) {
+            if (e.target.closest(".delete-btn")) {
+                let index = e.target.closest(".delete-btn").dataset.index;
+                cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                renderCart();
+            }
+        });
+
+        renderCart();
+    </script>
+
+
+</body>
+
+</html>
