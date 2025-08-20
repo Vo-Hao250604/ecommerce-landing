@@ -1,319 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Furniro</title>
-		<link rel="stylesheet" href="css/style.css" />
-		<script
-			src="https://code.jquery.com/jquery-3.7.1.js"
-			integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-			crossorigin="anonymous"
-		></script>
-	</head>
-	<body>
-		<!-- === Header === -->
-		<header class="header">
-			<div class="header__brand">
-				<img src="images/logo.svg" class="header__logo" alt="furniro logo" />
-				<h2 class="header__title">Furniro</h2>
-			</div>
 
-			<div class="header__pages">
-				<a href="index.html">Home</a>
-				<a href="other-pages/shop.html">Shop</a>
-				<a href="#">About</a>
-				<a href="other-pages/contact.html">Contact</a>
-			</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Furniro</title>
+  <link rel="stylesheet" href="css/style.css" />
 
-			<div class="header__actions">
-				<img src="images/icons/account.svg" alt="account" />
-				<img src="images/icons/search.svg" alt="search" />
-				<img src="images/icons/heart.svg" alt="likes" />
-				<a href="other-pages/cart.html" class="header__action-link">	
-					<img src="images/icons/cart.svg" alt="shopping cart" class="icon-cart"/>
-				</a>
-			</div>
-		</header>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="js/home-carousel.js"></script>
+  <script type="module">
+    import { loadProducts, setupEventHandlers } from "./js/products.js";
 
-		<!-- Tạo khoảng ngăn cách giữa header với nội dung của nó -->
-		<div class="header-spacer"></div>
+    $(document).ready(function () {
+      // Nạp và hiển thị danh sách sản phẩm
+      loadProducts(1, 8);
+    });
+  </script>
 
-		<main>
-			<!-- === Hero Section === -->
-			<section class="hero">
-				<img
-					src="images/hero-picture-1.jpg"
-					class="hero__image"
-					alt="hero image with some furnitures"
-				/>
+</head>
 
-				<div class="hero__card hero__card--home">
-					<p class="hero__card__tag">New Arrival</p>
-					<h1 class="hero__card__title">
-						Discover Our<br />
-						New Collection
-					</h1>
-					<p class="hero__card__paragraph">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-						tellus, luctus nec ullamcorper mattis.
-					</p>
+<body>
+  <!-- === Header === -->
+  <header class="header">
+    <div class="header__brand">
+      <img src="images/logo.svg" class="header__logo" alt="furniro logo" />
+      <h2 class="header__title">Furniro</h2>
+    </div>
 
-					<button class="button button--big">BUY NOW</button>
-				</div>
-			</section>
+    <div class="header__pages">
+      <a href="index.html">Home</a>
+      <a href="other-pages/shop.html">Shop</a>
+      <a href="#">About</a>
+      <a href="other-pages/contact.html">Contact</a>
+    </div>
 
-			<!-- CATEGORY SECTION -->
-			<section class="section section--browse-range">
-				<div>
-					<h2 class="section__title">Browse The Range</h2>
-					<p class="section__subtitle">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					</p>
-				</div>
+    <div class="header__actions">
+      <img src="images/icons/account.svg" alt="account" />
+      <img src="images/icons/search.svg" alt="search" />
+      <img src="images/icons/heart.svg" alt="likes" />
+      <a href="other-pages/cart.html" class="header__action-link">
+        <img src="images/icons/cart.svg" alt="shopping cart" class="icon-cart" />
+      </a>
+    </div>
+  </header>
 
-				<div class="grid grid--3-columns">
-					<div class="category-card">
-						<img
-							src="images/category-section/dining.png"
-							class="category-card__image"
-							alt="Dining"
-						/>
-						<h3 class="category-card__title">Dining</h3>
-					</div>
-					<div class="category-card">
-						<img
-							src="images/category-section/living.png"
-							class="category-card__image"
-							alt="Living"
-						/>
-						<h3 class="category-card__title">Living</h3>
-					</div>
-					<div class="category-card">
-						<img
-							src="images/category-section/bedroom.png"
-							class="category-card__image"
-							alt="Bedroom"
-						/>
-						<h3 class="category-card__title">Bedroom</h3>
-					</div>
-				</div>
-			</section>
+  <!-- Tạo khoảng ngăn cách giữa header với nội dung của nó -->
+  <div class="header-spacer"></div>
 
-			<!-- PRODUCT SECTION -->
-			<section class="section section--products">
-				<div>
-					<h2 class="section__title">Our Products</h2>
-				</div>
+  <main>
+    <!-- === Hero Section === -->
+    <section class="hero">
+      <img src="images/hero-picture-1.jpg" class="hero__image" alt="hero image with some furnitures" />
 
-				<!-- Products grid -->
-				<div class="grid grid--4-columns" id="productsList"></div>
+      <div class="hero__card hero__card--home">
+        <p class="hero__card__tag">New Arrival</p>
+        <h1 class="hero__card__title">
+          Discover Our<br />
+          New Collection
+        </h1>
+        <p class="hero__card__paragraph">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+          tellus, luctus nec ullamcorper mattis.
+        </p>
 
-				<a class="button button--outline" href="other-pages/shop.html"
-					>Show more</a
-				>
-			</section>
+        <button class="button button--big">BUY NOW</button>
+      </div>
+    </section>
 
-			<!-- INSPIRATION SECTION -->
-			<section class="section section--inspiration">
-				<div class="inspiration">
-					<div class="inspiration__content">
-						<h2 class="inspiration__title">50+ Beautiful rooms inspiration</h2>
-						<p class="inspiration__description">
-							Our designer already made a lot of beautiful prototype of rooms
-							that inspire you
-						</p>
-						<button class="inspiration__button">Explore More</button>
-					</div>
+    <!-- CATEGORY SECTION -->
+    <section class="section section--browse-range">
+      <div>
+        <h2 class="section__title">Browse The Range</h2>
+        <p class="section__subtitle">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </div>
 
-					<div class="carousel">
-						<div class="carousel__container">
-							<div class="carousel__track" id="carouselTrack">
-								<div class="carousel__slide carousel__slide--active">
-									<img
-										src="images/inspiration-section/Inner Peace.png"
-										alt="Bed Room"
-										class="carousel__image"
-									/>
-									<div class="carousel__info carousel__info--active">
-										<div class="carousel__info__content">
-											<p>01 —— Bed Room</p>
-											<h3>Inner Peace</h3>
-										</div>
-										<button class="carousel__arrow-btn">
-											<img src="images/icons/arrow-right.svg" alt="View room" />
-										</button>
-									</div>
-								</div>
+      <div class="grid grid--3-columns">
+        <div class="category-card">
+          <img src="images/category-section/dining.png" class="category-card__image" alt="Dining" />
+          <h3 class="category-card__title">Dining</h3>
+        </div>
+        <div class="category-card">
+          <img src="images/category-section/living.png" class="category-card__image" alt="Living" />
+          <h3 class="category-card__title">Living</h3>
+        </div>
+        <div class="category-card">
+          <img src="images/category-section/bedroom.png" class="category-card__image" alt="Bedroom" />
+          <h3 class="category-card__title">Bedroom</h3>
+        </div>
+      </div>
+    </section>
 
-								<div class="carousel__slide">
-									<img
-										src="images/inspiration-section/Elegance.png"
-										alt="Dining Room"
-										class="carousel__image"
-									/>
-									<div class="carousel__info">
-										<div class="carousel__info__content">
-											<p>02 —— Dining Room</p>
-											<h3>Elegance</h3>
-										</div>
-										<button class="carousel__arrow-btn">
-											<img src="images/icons/arrow-right.svg" alt="View room" />
-										</button>
-									</div>
-								</div>
+    <!-- PRODUCT SECTION -->
+    <section class="section section--products">
+      <div>
+        <h2 class="section__title">Our Products</h2>
+      </div>
 
-								<div class="carousel__slide">
-									<img
-										src="images/inspiration-section/Comfort.png"
-										alt="Living Room"
-										class="carousel__image"
-									/>
-									<div class="carousel__info">
-										<div class="carousel__info__content">
-											<div>03 —— Living Room</div>
-											<h3>Comfort</h3>
-										</div>
-										<button class="carousel__arrow-btn">
-											<img src="images/icons/arrow-right.svg" alt="View room" />
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
+      <!-- Products grid -->
+      <div class="grid grid--4-columns" id="productsList"></div>
 
-						<div class="carousel__dot-container" id="carouselDots">
-							<div
-								class="carousel__dot carousel__dot--active"
-								data-slide="0"
-							></div>
-							<div class="carousel__dot" data-slide="1"></div>
-							<div class="carousel__dot" data-slide="2"></div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
+      <a class="button button--outline" href="other-pages/shop.html">Show more</a>
+    </section>
 
-		<!-- === Footer === -->
-		<footer class="footer">
-			<div class="footer__container">
-				<div class="footer__grid">
-					<!-- Company Info -->
-					<div class="footer__column footer__column--brand">
-						<h2 class="footer__brand-title">Funiro.</h2>
-						<address class="footer__address">
-							400 University Drive Suite 200 Coral Gables,<br />
-							FL 33134 USA
-						</address>
-					</div>
+    <!-- INSPIRATION SECTION -->
+    <section class="section section--inspiration">
+      <div class="inspiration">
+        <div class="inspiration__content">
+          <h2 class="inspiration__title">50+ Beautiful rooms inspiration</h2>
+          <p class="inspiration__description">
+            Our designer already made a lot of beautiful prototype of rooms
+            that inspire you
+          </p>
+          <button class="inspiration__button">Explore More</button>
+        </div>
 
-					<!-- Links -->
-					<div class="footer__column">
-						<h3 class="footer__heading">Links</h3>
-						<nav class="footer__nav">
-							<a href="#">Home</a>
-							<a href="other-pages/shop.html">Shop</a>
-							<a href="#">About</a>
-							<a href="other-pages/contact.html">Contact</a>
-						</nav>
-					</div>
+        <div class="carousel">
+          <div class="carousel__container">
+            <div class="carousel__track" id="carouselTrack">
+              <div class="carousel__slide carousel__slide--active">
+                <img src="images/inspiration-section/Inner Peace.png" alt="Bed Room" class="carousel__image" />
+                <div class="carousel__info">
+                  <div class="carousel__info__content">
+                    <p>01 — Bed Room</p>
+                    <h3>Inner Peace</h3>
+                  </div>
+                  <button class="carousel__arrow-btn">
+                    <img src="images/icons/arrow-right.svg" alt="View room" />
+                  </button>
+                </div>
+              </div>
 
-					<!-- Help -->
-					<div class="footer__column">
-						<h3 class="footer__heading">Help</h3>
-						<nav class="footer__nav">
-							<a href="#">Payment Options</a>
-							<a href="#">Returns</a>
-							<a href="#">Privacy Policies</a>
-						</nav>
-					</div>
+              <div class="carousel__slide">
+                <img src="images/inspiration-section/Elegance.png" alt="Dining Room" class="carousel__image" />
+                <div class="carousel__info">
+                  <div class="carousel__info__content">
+                    <p>02 — Dining Room</p>
+                    <h3>Elegance</h3>
+                  </div>
+                  <button class="carousel__arrow-btn">
+                    <img src="images/icons/arrow-right.svg" alt="View room" />
+                  </button>
+                </div>
+              </div>
 
-					<!-- Newsletter -->
-					<div class="footer__column footer__column--newsletter">
-						<h3 class="footer__heading">Newsletter</h3>
-						<form class="footer__newsletter-form">
-							<div class="footer__newsletter-wrapper">
-								<input
-									type="email"
-									class="footer__newsletter-input"
-									placeholder="Enter Your Email Address"
-									required
-								/>
-								<button type="submit" class="footer__newsletter-btn">
-									SUBSCRIBE
-								</button>
-							</div>
-						</form>
-					</div>
-				</div>
+              <div class="carousel__slide">
+                <img src="images/inspiration-section/Comfort.png" alt="Living Room" class="carousel__image" />
+                <div class="carousel__info">
+                  <div class="carousel__info__content">
+                    <div>03 — Living Room</div>
+                    <h3>Comfort</h3>
+                  </div>
+                  <button class="carousel__arrow-btn">
+                    <img src="images/icons/arrow-right.svg" alt="View room" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
 
-				<!-- Footer Bottom -->
-				<div class="footer__bottom">
-					<p class="footer__copyright">2023 furino. All rights reserved</p>
-				</div>
-			</div>
-		</footer>
+          <div class="carousel__dot-container" id="carouselDots">
+            <div class="carousel__dot carousel__dot--active" data-slide="0"></div>
+            <div class="carousel__dot" data-slide="1"></div>
+            <div class="carousel__dot" data-slide="2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-		<script type="module">
-			import { loadProducts, setupEventHandlers } from "./js/products.js";
+  <!-- === Footer === -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <!-- Company Info -->
+        <div class="footer__column footer__column--brand">
+          <h2 class="footer__brand-title">Funiro.</h2>
+          <address class="footer__address">
+            400 University Drive Suite 200 Coral Gables,<br />
+            FL 33134 USA
+          </address>
+        </div>
 
-			$(document).ready(function () {
-				// Nạp và hiển thị danh sách sản phẩm
-				loadProducts(1, 8);
-			});
-		</script>
-		<script type="module">
-			$(document).ready(function () {
-				let currentSlide = 0; // Chỉ mục của slide hiện tại
-				const totalSlides = $(".carousel__slide").length;
+        <!-- Links -->
+        <div class="footer__column">
+          <h3 class="footer__heading">Links</h3>
+          <nav class="footer__nav">
+            <a href="#">Home</a>
+            <a href="other-pages/shop.html">Shop</a>
+            <a href="#">About</a>
+            <a href="other-pages/contact.html">Contact</a>
+          </nav>
+        </div>
 
-				// Nhấn vào dấu chấm chỉ mục
-				$(".carousel__dot").on("click", function () {
-					currentSlide = $(this).data("slide");
-					updateCarousel();
-				});
+        <!-- Help -->
+        <div class="footer__column">
+          <h3 class="footer__heading">Help</h3>
+          <nav class="footer__nav">
+            <a href="#">Payment Options</a>
+            <a href="#">Returns</a>
+            <a href="#">Privacy Policies</a>
+          </nav>
+        </div>
 
-				// Nhấn vào mũi tên
-				$(".carousel__arrow-btn").on("click", function () {
-					currentSlide = (currentSlide + 1) % totalSlides;
-					updateCarousel();
-				});
+        <!-- Newsletter -->
+        <div class="footer__column footer__column--newsletter">
+          <h3 class="footer__heading">Newsletter</h3>
+          <form class="footer__newsletter-form">
+            <div class="footer__newsletter-wrapper">
+              <input type="email" class="footer__newsletter-input" placeholder="Enter Your Email Address" required />
+              <button type="submit" class="footer__newsletter-btn">
+                SUBSCRIBE
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
 
-				function updateCarousel() {
-					$(".carousel__slide").removeClass("carousel__slide--active");
-					$(".carousel__slide")
-						.eq(currentSlide)
-						.addClass("carousel__slide--active");
+      <!-- Footer Bottom -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">2023 furino. All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+</body>
 
-					$(".carousel__info").removeClass("carousel__info--active");
-					$(".carousel__info")
-						.eq(currentSlide)
-						.addClass("carousel__info--active");
-
-					$(".carousel__dot").removeClass("carousel__dot--active");
-					$(".carousel__dot")
-						.eq(currentSlide)
-						.addClass("carousel__dot--active");
-
-					let moveDistance;
-					if ($(window).width() <= 768) {
-						// Mobile: Khoảng cách di chuyển = 100% chiều rộng màn hình
-						moveDistance = -currentSlide * 100;
-						$(".carousel__track").css(
-							"transform",
-							`translateX(${moveDistance}%)`
-						);
-					} else {
-						// Desktop: Khoảng cách di chuyển = vị trí hiện tại nhân với (độ rộng của một slide + gap)
-						moveDistance = -currentSlide * (372 + 24);
-						$(".carousel__track").css(
-							"transform",
-							`translateX(${moveDistance}px)`
-						);
-					}
-				}
-			});
-		</script>
-	</body>
 </html>
