@@ -1,0 +1,117 @@
+.cart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 60px 80px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== Bảng sản phẩm ===== */
+#cart-table {
+  width: 65%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+#cart-table thead th {
+  background-color: #F9F1E7;
+  text-align: left;
+  padding: 16px 20px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+#cart-table tbody td {
+  padding: 20px;
+  border-bottom: 1px solid #E8E8E8;
+  vertical-align: middle;
+  font-size: 15px;
+}
+
+#cart-table img {
+  width: 80px;
+  height: auto;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#cart-table input[type="number"] {
+  width: 40px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.remove-btn {
+  color: #B88E2F;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* ===== Cart Totals ===== */
+.cart-totals {
+  width: 300px;
+  background-color: #F9F1E7;        
+  padding: 28px;
+  border-radius: 8px;
+}
+
+.cart-totals h2 {
+  font-size: 22px;                   
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.cart-totals p {
+  display: flex;                     
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 24px;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+.cart-totals p span:first-child {    
+  font-weight: 600;
+  color: #000;
+}
+
+#subtotal-value {                     
+  justify-self: end;
+  color: #B2B2B2;
+}
+
+#total-value {                        
+  justify-self: end;
+  color: #B88E2F;
+  font-weight: 700;
+}
+
+.btn-checkout {
+  display: block;
+  width: 80%;
+  margin: 22px auto 0;
+  padding: 12px 0;
+  font-size: 16px;
+  border: 1px solid #000;             
+  background: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-checkout:hover {
+  background-color: #B88E2F;
+  color: #fff;
+  border-color: #B88E2F;
+}

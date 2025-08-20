@@ -1,225 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Shop | Furniro</title>
 
-		<base href="../" />
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Shop | Furniro</title>
 
-		<link rel="stylesheet" href="css/style.css" />
-		<script
-			src="https://code.jquery.com/jquery-3.7.1.js"
-			integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-			crossorigin="anonymous"
-		></script>
-	</head>
-	<body>
-		<!-- === Header === -->
-		<header class="header">
-			<div class="header__brand">
-				<img src="images/logo.svg" class="header__logo" alt="furniro logo" />
-				<h2 class="header__title">Furniro</h2>
+	<base href="../" />
+
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="https://code.jquery.com/jquery-3.7.1.js"
+		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<!-- === Header === -->
+	<header class="header">
+		<div class="header__brand">
+			<img src="images/logo.svg" class="header__logo" alt="furniro logo" />
+			<h2 class="header__title">Furniro</h2>
+		</div>
+
+		<div class="header__pages">
+			<a href="index.html">Home</a>
+			<a href="/other-pages/shop.html">Shop</a>
+			<a href="#">About</a>
+			<a href="/other-pages/contact.html">Contact</a>
+		</div>
+
+		<div class="header__actions">
+			<img src="images/icons/account.svg" alt="account" />
+			<img src="images/icons/search.svg" alt="search" />
+			<img src="images/icons/heart.svg" alt="likes" />
+			<a href="other-pages/cart.html" class="header__action-link">	
+				<img src="images/icons/cart.svg" alt="shopping cart" class="icon-cart"/>
+			</a>
+		</div>
+	</header>
+
+	<!-- Tạo khoảng ngăn cách giữa header với nội dung của nó -->
+	<div class="header-spacer"></div>
+
+	<!-- Hero Banner Shop === -->
+	<section class="hero hero--shop">
+		<img src="images/hero-picture-2.jpg" class="hero__image hero--shop__image"
+			alt="hero image with some furnitures" />
+
+		<div class="hero__title">
+			<h1 class="hero__title-heading">Shop</h1>
+			<p>
+				<a href="index.html" class="breadcrumbs">Home ></a>
+				<span>Shop</span>
+			</p>
+		</div>
+	</section>
+
+	<!-- Toolbar: filter, view, sort-->
+	<section class="toolbar toolbar--shop">
+		<div class="toolbar__item-container">
+			<div class="toolbar__filter-item">
+				<img src="images/icons/control.svg" alt="filter icon" width="19px" height="16px" />
+				<span>Filter</span>
 			</div>
-
-			<div class="header__pages">
-				<a href="index.html">Home</a>
-				<a href="/other-pages/shop.html">Shop</a>
-				<a href="#">About</a>
-				<a href="/other-pages/contact.html">Contact</a>
+			<img src="images/icons/view-grid.svg" alt="grid view" width="19px" height="16px" id="gridViewBtn" />
+			<img src="images/icons/view-list.svg" alt="list view" width="19px" height="16px" id="listViewBtn" />
+			<div class="toolbar__divider"></div>
+			<div class="toolbar__result" id="toolbarResult"></div>
+		</div>
+		<div class="toolbar__item-container">
+			<div class="toolbar__filter-item">
+				<label for="productsPerPage">Show</label>
+				<select id="productsPerPage" name="Number of products per page" class="selector">
+					<option value="8">8</option>
+					<option value="16" selected>16</option>
+					<option value="32">32</option>
+				</select>
 			</div>
-
-			<div class="header__actions">
-				<img src="images/icons/account.svg" alt="account" />
-				<img src="images/icons/search.svg" alt="search" />
-				<img src="images/icons/heart.svg" alt="likes" />
-				<img src="images/icons/cart.svg" alt="shopping cart" />
+			<div class="toolbar__filter-item">
+				<label for="productsSortBy">Sort by</label>
+				<select id="productsSortBy" name="Products sort by" class="selector selector--md">
+					<option value="default" selected>Default</option>
+					<option value="Price: Low to High">Price: Low to High</option>
+					<option value="Price: High to Low">Price: High to Low</option>
+					<option value="Newest">Newest</option>
+				</select>
 			</div>
-		</header>
+		</div>
+	</section>
 
-		<!-- Tạo khoảng ngăn cách giữa header với nội dung của nó -->
-		<div class="header-spacer"></div>
+	<!-- Products SECTION -->
+	<section class="section section--products">
+		<!-- Products GRID -->
+		<div class="grid grid--4-columns" id="productsList"></div>
 
-		<!-- Hero Banner Shop === -->
-		<section class="hero hero--shop">
-			<img
-				src="images/hero-picture-2.jpg"
-				class="hero__image hero--shop__image"
-				alt="hero image with some furnitures"
-			/>
+		<!-- Pagination -->
+		<div class="pagination" id="pagination"></div>
+	</section>
 
-			<div class="hero__title">
-				<h1 class="hero__title-heading">Shop</h1>
-				<p>
-					<a href="index.html" class="breadcrumbs">Home ></a>
-					<span>Shop</span>
-				</p>
+	<!-- === Service Info Section === -->
+	<section class="service-info">
+		<div class="service-info__item">
+			<img src="images/icons/trophy.svg" alt="High Quality" />
+			<div>
+				<h4>High Quality</h4>
+				<p>crafted from top materials</p>
 			</div>
-		</section>
-
-		<!-- Toolbar: filter, view, sort-->
-		<section class="toolbar toolbar--shop">
-			<div class="toolbar__item-container">
-				<div class="toolbar__filter-item">
-					<img
-						src="images/icons/control.svg"
-						alt="filter icon"
-						width="19px"
-						height="16px"
-					/>
-					<span>Filter</span>
-				</div>
-				<img
-					src="images/icons/view-grid.svg"
-					alt="grid view"
-					width="19px"
-					height="16px"
-				/>
-				<img
-					src="images/icons/view-list.svg"
-					alt="list view"
-					width="19px"
-					height="16px"
-				/>
-				<div class="toolbar__divider"></div>
-				<div class="toolbar__result" id="toolbarResult"></div>
+		</div>
+		<div class="service-info__item">
+			<img src="images/icons/vertified.svg" alt="Warranty Protection" />
+			<div>
+				<h4>Warranty Protection</h4>
+				<p>Over 2 years</p>
 			</div>
-			<div class="toolbar__item-container">
-				<div class="toolbar__filter-item">
-					<label for="productsPerPage">Show</label>
-					<select
-						id="productsPerPage"
-						name="Number of products per page"
-						class="selector"
-					>
-						<option value="8">8</option>
-						<option value="16" selected>16</option>
-						<option value="32">32</option>
-					</select>
-				</div>
-				<div class="toolbar__filter-item">
-					<label for="productsSortBy">Sort by</label>
-					<select
-						id="productsSortBy"
-						name="Products sort by"
-						class="selector selector--md"
-					>
-						<option value="default" selected>Default</option>
-					</select>
-				</div>
+		</div>
+		<div class="service-info__item">
+			<img src="images/icons/handle-package.svg" alt="Free Shipping" />
+			<div>
+				<h4>Free Shipping</h4>
+				<p>Order over 150 $</p>
 			</div>
-		</section>
-
-		<!-- Products SECTION -->
-		<section class="section section--products">
-			<!-- Products GRID -->
-			<div class="grid grid--4-columns" id="productsList"></div>
-
-			<!-- Pagination -->
-			<div class="pagination" id="pagination"></div>
-		</section>
-
-		<!-- === Service Info Section === -->
-		<section class="service-info">
-			<div class="service-info__item">
-				<img src="images/icons/trophy.svg" alt="High Quality" />
-				<div>
-					<h4>High Quality</h4>
-					<p>crafted from top materials</p>
-				</div>
+		</div>
+		<div class="service-info__item">
+			<img src="images/icons/assistance-hotline.svg" alt="24 / 7 Support" />
+			<div>
+				<h4>24 / 7 Support</h4>
+				<p>Dedicated support</p>
 			</div>
-			<div class="service-info__item">
-				<img src="images/icons/vertified.svg" alt="Warranty Protection" />
-				<div>
-					<h4>Warranty Protection</h4>
-					<p>Over 2 years</p>
-				</div>
-			</div>
-			<div class="service-info__item">
-				<img src="images/icons/handle-package.svg" alt="Free Shipping" />
-				<div>
-					<h4>Free Shipping</h4>
-					<p>Order over 150 $</p>
-				</div>
-			</div>
-			<div class="service-info__item">
-				<img src="images/icons/assistance-hotline.svg" alt="24 / 7 Support" />
-				<div>
-					<h4>24 / 7 Support</h4>
-					<p>Dedicated support</p>
-				</div>
-			</div>
-		</section>
+		</div>
+	</section>
 
-		<!-- === Footer === -->
-		<footer class="footer">
-			<div class="footer__container">
-				<div class="footer__grid">
-					<!-- Company Info -->
-					<div class="footer__column footer__column--brand">
-						<h2 class="footer__brand-title">Funiro.</h2>
-						<address class="footer__address">
-							400 University Drive Suite 200 Coral Gables,<br />
-							FL 33134 USA
-						</address>
-					</div>
-
-					<!-- Links -->
-					<div class="footer__column">
-						<h3 class="footer__heading">Links</h3>
-						<nav class="footer__nav">
-							<a href="#">Home</a>
-							<a href="other-pages/shop.html">Shop</a>
-							<a href="#">About</a>
-							<a href="other-pages/contact.html">Contact</a>
-						</nav>
-					</div>
-
-					<!-- Help -->
-					<div class="footer__column">
-						<h3 class="footer__heading">Help</h3>
-						<nav class="footer__nav">
-							<a href="#">Payment Options</a>
-							<a href="#">Returns</a>
-							<a href="#">Privacy Policies</a>
-						</nav>
-					</div>
-
-					<!-- Newsletter -->
-					<div class="footer__column footer__column--newsletter">
-						<h3 class="footer__heading">Newsletter</h3>
-						<form class="footer__newsletter-form">
-							<div class="footer__newsletter-wrapper">
-								<input
-									type="email"
-									class="footer__newsletter-input"
-									placeholder="Enter Your Email Address"
-									required
-								/>
-								<button type="submit" class="footer__newsletter-btn">
-									SUBSCRIBE
-								</button>
-							</div>
-						</form>
-					</div>
+	<!-- === Footer === -->
+	<footer class="footer">
+		<div class="footer__container">
+			<div class="footer__grid">
+				<!-- Company Info -->
+				<div class="footer__column footer__column--brand">
+					<h2 class="footer__brand-title">Funiro.</h2>
+					<address class="footer__address">
+						400 University Drive Suite 200 Coral Gables,<br />
+						FL 33134 USA
+					</address>
 				</div>
 
-				<!-- Footer Bottom -->
-				<div class="footer__bottom">
-					<p class="footer__copyright">2023 furino. All rights reserved</p>
+				<!-- Links -->
+				<div class="footer__column">
+					<h3 class="footer__heading">Links</h3>
+					<nav class="footer__nav">
+						<a href="#">Home</a>
+						<a href="other-pages/shop.html">Shop</a>
+						<a href="#">About</a>
+						<a href="other-pages/contact.html">Contact</a>
+					</nav>
+				</div>
+
+				<!-- Help -->
+				<div class="footer__column">
+					<h3 class="footer__heading">Help</h3>
+					<nav class="footer__nav">
+						<a href="#">Payment Options</a>
+						<a href="#">Returns</a>
+						<a href="#">Privacy Policies</a>
+					</nav>
+				</div>
+
+				<!-- Newsletter -->
+				<div class="footer__column footer__column--newsletter">
+					<h3 class="footer__heading">Newsletter</h3>
+					<form class="footer__newsletter-form">
+						<div class="footer__newsletter-wrapper">
+							<input type="email" class="footer__newsletter-input" placeholder="Enter Your Email Address"
+								required />
+							<button type="submit" class="footer__newsletter-btn">
+								SUBSCRIBE
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
-		</footer>
-		<script type="module">
-			import { loadProducts, setupEventHandlers } from "./js/products.js";
 
-			$(document).ready(function () {
-				// Nạp và hiển thị danh sách sản phẩm
-				loadProducts(1, 16);
+			<!-- Footer Bottom -->
+			<div class="footer__bottom">
+				<p class="footer__copyright">2023 furino. All rights reserved</p>
+			</div>
+		</div>
+	</footer>
+	<script type="module">
+		import { loadProducts, setupEventHandlers } from "./js/products.js";
 
-				// Thêm sự kiện cho các nút bấm, các selector
-				setupEventHandlers();
-			});
-		</script>
-	</body>
+		$(document).ready(function () {
+			// Nạp và hiển thị danh sách sản phẩm
+			loadProducts(1, 16);
+
+			// Thêm sự kiện cho các nút bấm, các selector
+			setupEventHandlers();
+		});
+	</script>
+</body>
+
 </html>
