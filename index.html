@@ -107,11 +107,90 @@
 				<!-- Products grid -->
 				<div class="grid grid--4-columns" id="productsList"></div>
 
-				<a class="button button--outline" href="other-pages/shop.html">Show more</a>
+				<a class="button button--outline" href="other-pages/shop.html"
+					>Show more</a
+				>
 			</section>
 
 			<!-- INSPIRATION SECTION -->
-			<section class="section section--products"></section>
+			<section class="section section--inspiration">
+				<div class="inspiration">
+					<div class="inspiration__content">
+						<h2 class="inspiration__title">50+ Beautiful rooms inspiration</h2>
+						<p class="inspiration__description">
+							Our designer already made a lot of beautiful prototype of rooms
+							that inspire you
+						</p>
+						<button class="inspiration__button">Explore More</button>
+					</div>
+
+					<div class="carousel">
+						<div class="carousel__container">
+							<div class="carousel__track" id="carouselTrack">
+								<div class="carousel__slide carousel__slide--active">
+									<img
+										src="images/inspiration-section/Inner Peace.png"
+										alt="Bed Room"
+										class="carousel__image"
+									/>
+									<div class="carousel__info carousel__info--active">
+										<div class="carousel__info__content">
+											<p>01 —— Bed Room</p>
+											<h3>Inner Peace</h3>
+										</div>
+										<button class="carousel__arrow-btn">
+											<img src="images/icons/arrow-right.svg" alt="View room" />
+										</button>
+									</div>
+								</div>
+
+								<div class="carousel__slide">
+									<img
+										src="images/inspiration-section/Elegance.png"
+										alt="Dining Room"
+										class="carousel__image"
+									/>
+									<div class="carousel__info">
+										<div class="carousel__info__content">
+											<p>02 —— Dining Room</p>
+											<h3>Elegance</h3>
+										</div>
+										<button class="carousel__arrow-btn">
+											<img src="images/icons/arrow-right.svg" alt="View room" />
+										</button>
+									</div>
+								</div>
+
+								<div class="carousel__slide">
+									<img
+										src="images/inspiration-section/Comfort.png"
+										alt="Living Room"
+										class="carousel__image"
+									/>
+									<div class="carousel__info">
+										<div class="carousel__info__content">
+											<div>03 —— Living Room</div>
+											<h3>Comfort</h3>
+										</div>
+										<button class="carousel__arrow-btn">
+											<img src="images/icons/arrow-right.svg" alt="View room" />
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="carousel__dot-container" id="carouselDots">
+							<div
+								class="carousel__dot carousel__dot--active"
+								data-slide="0"
+							></div>
+							<div class="carousel__dot" data-slide="1"></div>
+							<div class="carousel__dot" data-slide="2"></div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
 
 		<!-- === Footer === -->
@@ -180,6 +259,58 @@
 			$(document).ready(function () {
 				// Nạp và hiển thị danh sách sản phẩm
 				loadProducts(1, 8);
+			});
+		</script>
+		<script type="module">
+			$(document).ready(function () {
+				let currentSlide = 0; // Chỉ mục của slide hiện tại
+				const totalSlides = $(".carousel__slide").length;
+
+				// Nhấn vào dấu chấm chỉ mục
+				$(".carousel__dot").on("click", function () {
+					currentSlide = $(this).data("slide");
+					updateCarousel();
+				});
+
+				// Nhấn vào mũi tên
+				$(".carousel__arrow-btn").on("click", function () {
+					currentSlide = (currentSlide + 1) % totalSlides;
+					updateCarousel();
+				});
+
+				function updateCarousel() {
+					$(".carousel__slide").removeClass("carousel__slide--active");
+					$(".carousel__slide")
+						.eq(currentSlide)
+						.addClass("carousel__slide--active");
+
+					$(".carousel__info").removeClass("carousel__info--active");
+					$(".carousel__info")
+						.eq(currentSlide)
+						.addClass("carousel__info--active");
+
+					$(".carousel__dot").removeClass("carousel__dot--active");
+					$(".carousel__dot")
+						.eq(currentSlide)
+						.addClass("carousel__dot--active");
+
+					let moveDistance;
+					if ($(window).width() <= 768) {
+						// Mobile: Khoảng cách di chuyển = 100% chiều rộng màn hình
+						moveDistance = -currentSlide * 100;
+						$(".carousel__track").css(
+							"transform",
+							`translateX(${moveDistance}%)`
+						);
+					} else {
+						// Desktop: Khoảng cách di chuyển = vị trí hiện tại nhân với (độ rộng của một slide + gap)
+						moveDistance = -currentSlide * (372 + 24);
+						$(".carousel__track").css(
+							"transform",
+							`translateX(${moveDistance}px)`
+						);
+					}
+				}
 			});
 		</script>
 	</body>
