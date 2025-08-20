@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="js/home-carousel.js"></script>
+  <script src="js/gallery.js"></script>
   <script type="module">
     import { loadProducts, setupEventHandlers } from "./js/products.js";
 
@@ -117,43 +117,43 @@
           <button class="inspiration__button">Explore More</button>
         </div>
 
-        <div class="carousel">
-          <div class="carousel__container">
-            <div class="carousel__track" id="carouselTrack">
-              <div class="carousel__slide carousel__slide--active">
-                <img src="images/inspiration-section/Inner Peace.png" alt="Bed Room" class="carousel__image" />
-                <div class="carousel__info">
-                  <div class="carousel__info__content">
+        <div class="gallery">
+          <div class="gallery__container">
+            <div class="gallery__track" id="galleryTrack">
+              <div class="gallery__slide gallery__slide--active">
+                <img src="images/inspiration-section/Inner Peace.png" alt="Bed Room" class="gallery__image" />
+                <div class="gallery__info">
+                  <div class="gallery__info__content">
                     <p>01 — Bed Room</p>
                     <h3>Inner Peace</h3>
                   </div>
-                  <button class="carousel__arrow-btn">
+                  <button class="gallery__arrow-btn">
                     <img src="images/icons/arrow-right.svg" alt="View room" />
                   </button>
                 </div>
               </div>
 
-              <div class="carousel__slide">
-                <img src="images/inspiration-section/Elegance.png" alt="Dining Room" class="carousel__image" />
-                <div class="carousel__info">
-                  <div class="carousel__info__content">
+              <div class="gallery__slide">
+                <img src="images/inspiration-section/Elegance.png" alt="Dining Room" class="gallery__image" />
+                <div class="gallery__info">
+                  <div class="gallery__info__content">
                     <p>02 — Dining Room</p>
                     <h3>Elegance</h3>
                   </div>
-                  <button class="carousel__arrow-btn">
+                  <button class="gallery__arrow-btn">
                     <img src="images/icons/arrow-right.svg" alt="View room" />
                   </button>
                 </div>
               </div>
 
-              <div class="carousel__slide">
-                <img src="images/inspiration-section/Comfort.png" alt="Living Room" class="carousel__image" />
-                <div class="carousel__info">
-                  <div class="carousel__info__content">
+              <div class="gallery__slide">
+                <img src="images/inspiration-section/Comfort.png" alt="Living Room" class="gallery__image" />
+                <div class="gallery__info">
+                  <div class="gallery__info__content">
                     <div>03 — Living Room</div>
                     <h3>Comfort</h3>
                   </div>
-                  <button class="carousel__arrow-btn">
+                  <button class="gallery__arrow-btn">
                     <img src="images/icons/arrow-right.svg" alt="View room" />
                   </button>
                 </div>
@@ -161,10 +161,10 @@
             </div>
           </div>
 
-          <div class="carousel__dot-container" id="carouselDots">
-            <div class="carousel__dot carousel__dot--active" data-slide="0"></div>
-            <div class="carousel__dot" data-slide="1"></div>
-            <div class="carousel__dot" data-slide="2"></div>
+          <div class="gallery__dot-container" id="galleryDots">
+            <div class="gallery__dot gallery__dot--active" data-slide="0"></div>
+            <div class="gallery__dot" data-slide="1"></div>
+            <div class="gallery__dot" data-slide="2"></div>
           </div>
         </div>
       </div>

@@ -1,14 +1,14 @@
-.carousel {
+.gallery {
 	flex: 1;
 	overflow-y: hidden;
 	position: relative;
 }
 
-.carousel__container {
+.gallery__container {
 	overflow: hidden;
 }
 
-.carousel__track {
+.gallery__track {
 	height: 582px;
 	display: flex;
 	align-items: start;
@@ -17,7 +17,7 @@
 	will-change: transform;
 }
 
-.carousel__slide {
+.gallery__slide {
 	position: relative;
 	height: 486px;
 	flex-basis: 372px; /* Chỉ định chiều rộng của một slide cùng với flex-strink */
@@ -26,18 +26,18 @@
 	transition: height 0.3s ease;
 }
 
-.carousel__slide--active {
+.gallery__slide--active {
 	height: 582px;
 	flex-basis: 404px;
 }
 
-.carousel__slide > img {
+.gallery__slide > img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
 
-.carousel__info {
+.gallery__info {
 	opacity: 0;
 	display: flex;
 	position: absolute;
@@ -48,32 +48,32 @@
 	align-items: end;
 }
 
-.carousel__slide--active > * {
+.gallery__slide--active > * {
 	opacity: 100%;
 }
 
-.carousel__info__content {
+.gallery__info__content {
 	text-align: start;
 	padding: 32px;
 	background-color: rgba(255, 255, 255, 0.72);
 	backdrop-filter: blur(3px);
 }
 
-.carousel__info__content > p {
+.gallery__info__content > p {
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 150%;
 	color: var(--secondary);
 }
 
-.carousel__info__content > h3 {
+.gallery__info__content > h3 {
 	font-weight: 600;
 	font-size: 28px;
 	line-height: 120%;
 	color: var(--third);
 }
 
-.carousel__arrow-btn {
+.gallery__arrow-btn {
 	width: 48px;
 	height: 48px;
 	background-color: var(--primary);
@@ -85,17 +85,17 @@
 	transition: background-color 0.3s ease;
 }
 
-.carousel__arrow-btn:hover {
+.gallery__arrow-btn:hover {
 	background-color: #a67c29;
 }
 
-.carousel__arrow-btn img {
+.gallery__arrow-btn img {
 	width: 20px;
 	height: 20px;
 	filter: brightness(0) invert(1);
 }
 
-.carousel__dot-container {
+.gallery__dot-container {
 	background-color: var(--primary-surface);
 	border-radius: 8px;
 	position: absolute;
@@ -107,7 +107,7 @@
 	bottom: 29px;
 }
 
-.carousel__dot {
+.gallery__dot {
 	width: 11px;
 	height: 11px;
 	border-radius: 50%;
@@ -117,7 +117,7 @@
 	transition: all 0.3s ease;
 }
 
-.carousel__dot--active {
+.gallery__dot--active {
 	background-color: var(--primary);
 	outline-color: var(--primary);
 	outline-width: 2px;
@@ -125,59 +125,59 @@
 	outline-style: solid;
 }
 
-.carousel__dot:hover {
+.gallery__dot:hover {
 	background-color: var(--primary);
 }
 
 /* Responsive */
 /* Mobile Responsive */
 @media (max-width: 768px) {
-	.carousel__track {
+	.gallery__track {
 		height: 400px;
 		gap: 0;
 	}
 
-	.carousel__slide {
+	.gallery__slide {
 		height: 400px;
 		flex-basis: 100%;
 		flex-shrink: 0;
 	}
 
-	.carousel__slide--active {
+	.gallery__slide--active {
 		height: 400px;
 		flex-basis: 100%;
 	}
 
-	.carousel__info {
+	.gallery__info {
 		bottom: 16px;
 		left: 16px;
 		min-width: auto;
 		max-width: calc(100% - 32px);
 	}
 
-	.carousel__info__content {
+	.gallery__info__content {
 		padding: 20px;
 	}
 
-	.carousel__info__content > p {
+	.gallery__info__content > p {
 		font-size: 14px;
 	}
 
-	.carousel__info__content > h3 {
+	.gallery__info__content > h3 {
 		font-size: 22px;
 	}
 
-	.carousel__arrow-btn {
+	.gallery__arrow-btn {
 		width: 40px;
 		height: 40px;
 	}
 
-	.carousel__arrow-btn img {
+	.gallery__arrow-btn img {
 		width: 16px;
 		height: 16px;
 	}
 
-	.carousel__dot-container {
+	.gallery__dot-container {
 		position: static;
 		margin: 16px 0;
 		background-color: transparent;
@@ -188,39 +188,39 @@
 		justify-content: center;
 	}
 
-	.carousel__dot {
+	.gallery__dot {
 		width: 8px;
 		height: 8px;
 	}
 
-	.carousel__dot--active {
+	.gallery__dot--active {
 		outline-width: 1px;
 		outline-offset: 4px;
 	}
 }
 
 @media (max-width: 480px) {
-	.carousel__track {
+	.gallery__track {
 		height: 300px;
 	}
 
-	.carousel__slide {
+	.gallery__slide {
 		height: 300px;
 	}
 
-	.carousel__slide--active {
+	.gallery__slide--active {
 		height: 300px;
 	}
 
-	.carousel__info__content {
+	.gallery__info__content {
 		padding: 16px;
 	}
 
-	.carousel__info__content > p {
+	.gallery__info__content > p {
 		font-size: 12px;
 	}
 
-	.carousel__info__content > h3 {
+	.gallery__info__content > h3 {
 		font-size: 18px;
 	}
 }
