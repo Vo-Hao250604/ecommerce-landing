@@ -1,6 +1,7 @@
 .section--inspiration {
 	background-color: var(--primary-surface);
 	padding: 44px 0;
+    overflow: hidden;
 }
 
 .inspiration {

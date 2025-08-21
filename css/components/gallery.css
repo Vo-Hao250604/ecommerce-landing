@@ -1,11 +1,7 @@
 .gallery {
-	flex: 1;
-	overflow-y: hidden;
-	position: relative;
-}
-
-.gallery__container {
+	width: 100%;
 	overflow: hidden;
+	position: relative;
 }
 
 .gallery__track {
@@ -14,7 +10,7 @@
 	align-items: start;
 	gap: 24px;
 	transition: transform 0.5s ease;
-	will-change: transform;
+	/* will-change: transform; */
 }
 
 .gallery__slide {
