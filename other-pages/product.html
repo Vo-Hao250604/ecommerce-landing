@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail | Furniro</title>
+  <base href="../" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="js/product.js"></script>
+  <script type="module">
+    import { loadProducts } from "./js/products.js";
+
+    $(document).ready(function () {
+      // Nạp và hiển thị danh sách sản phẩm
+      loadProducts(1, 4);
+    });
+  </script>
+
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__brand">
+      <img src="images/logo.svg" class="header__logo" alt="furniro logo" />
+      <h2 class="header__title">Furniro</h2>
+    </div>
+
+    <div class="header__pages">
+      <a href="index.html">Home</a>
+      <a href="other-pages/shop.html">Shop</a>
+      <a href="#">About</a>
+      <a href="other-pages/contact.html">Contact</a>
+    </div>
+
+    <div class="header__actions">
+      <img src="images/icons/account.svg" alt="account" />
+      <img src="images/icons/search.svg" alt="search" />
+      <img src="images/icons/heart.svg" alt="likes" />
+      <a href="other-pages/cart.html" class="header__action-link">
+        <img src="images/icons/cart.svg" alt="shopping cart" />
+      </a>
+    </div>
+  </header>
+
+  <div class="header-spacer"></div>
+
+  <!-- Breadcrumb -->
+  <nav class="toolbar toolbar--product">
+    <div class="toolbar__item">
+      <a href="index.html">Home</a>
+      <span class="">></span>
+      <a href="other-pages/shop.html">Shop</a>
+      <span class="">></span>
+      <div class="toolbar__divider"></div>
+      <div class="toolbar__result">Asgaard sofa</div>
+    </div>
+  </nav>
+
+  <!-- Product Detail -->
+  <section class="product">
+
+    <!-- Left: Carousel -->
+    <div class="carousel">
+      <div class="carousel__thumbs">
+        <img src="images/product/sofa-1.png" alt="" class="product-gallery__thumb product-gallery__thumb--active" />
+        <img src="images/product/sofa-2.png" alt="" class="product-gallery__thumb" />
+        <img src="images/product/sofa-3.png" alt="" class="product-gallery__thumb" />
+        <img src="images/product/sofa-4.png" alt="" class="product-gallery__thumb" />
+      </div>
+      <div class="carousel__image-container">
+        <img src="images/product/sofa-1.png" alt="Asgaard sofa" />
+      </div>
+    </div>
+
+    <!-- Right: Info -->
+    <div class="product-info">
+      <h1 class="product-info__title">Asgaard sofa</h1>
+      <div class="product-info__price">Rs. 250,000.00</div>
+
+      <div class="product-info__rating">
+        <div class="rating">
+          <img src="images/icons/star-filled.svg" alt="star-filled" />
+          <img src="images/icons/star-filled.svg" alt="star-filled" />
+          <img src="images/icons/star-filled.svg" alt="star-filled" />
+          <img src="images/icons/star-filled.svg" alt="star-filled" />
+          <img src="images/icons/star-half.svg" alt="star-half" />
+        </div>
+        <span>5 Customer Reviews</span>
+      </div>
+
+      <p class="product-info__description">
+        Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with
+        a well-balanced audio which boasts a clear midrange and extended highs for a sound.
+      </p>
+
+
+      <div class="product-info__size">
+        <label class="product-info__label">Size</label>
+        <div class="size-selector">
+          <div class="size-selector__btn">L</div>
+          <div class="size-selector__btn size-selector__btn--active">XL</div>
+          <div class="size-selector__btn">XS</div>
+        </div>
+      </div>
+
+      <div class="product-info__color">
+        <label class="product-info__label">Color</label>
+        <div class="color-selector">
+          <div class="color-selector__btn" style="background-color: #816DFA;"></div>
+          <div class="color-selector__btn color-selector__btn--active" style="background-color: #000000;"></div>
+          <div class="color-selector__btn" style="background-color: #B88E2F;"></div>
+        </div>
+      </div>
+
+      <div class="product-info__actions">
+        <div class="quantity-selector">
+          <button class="quantity-selector__btn">-</button>
+          <input type="number" value="1" class="quantity-selector__input" placeholder="Quantity"
+            title="Select quantity" />
+          <button class="quantity-selector__btn">+</button>
+        </div>
+        <button class="button button--outline--black">Add To Cart</button>
+        <button class="button button--outline--black">+ Compare</button>
+      </div>
+
+      <div class="product-info__meta">
+        <div class="product-meta">
+          <div class="product-meta__item">
+            <span class="product-meta__label">SKU</span>
+            <span class="product-meta__value">:</span>
+            <span class="product-meta__value">SS001</span>
+          </div>
+          <div class="product-meta__item">
+            <span class="product-meta__label">Category</span>
+            <span class="product-meta__value">:</span>
+            <span class="product-meta__value">Sofas</span>
+          </div>
+          <div class="product-meta__item">
+            <span class="product-meta__label">Tags</span>
+            <span class="product-meta__value">:</span>
+            <span class="product-meta__value">Sofa, Chair, Home, Shop</span>
+          </div>
+          <div class="product-meta__item">
+            <span class="product-meta__label">Share</span>
+            <span class="product-meta__value">:</span>
+            <div class="product-meta__share">
+              <a href="#"><img src="images/icons/facebook.svg" alt="Share on Facebook" /></a>
+              <a href="#"><img src="images/icons/linkedin.svg" alt="Share on LinkedIn" /></a>
+              <a href="#"><img src="images/icons/twitter.svg" alt="Share on Twitter" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Product Tabs -->
+  <section class="product-tabs">
+    <div class="product-tabs__container">
+      <div class="product-tabs__header">
+        <button class="product-tabs__btn product-tabs__btn--active" data-tab="descriptionTab">Description</button>
+        <button class="product-tabs__btn" data-tab="informationTab">Additional Information</button>
+        <button class="product-tabs__btn" data-tab="reviewsTab">Reviews [5]</button>
+      </div>
+
+      <div class="product-tabs__content product-tabs__content--active" id="descriptionTab">
+        <p>
+          Embodying the raw, wayward spirit of rock 'n' roll, the Kilburn portable active stereo speaker takes the
+          unmistakable look and sound of Marshall, unplugs the chords, and takes the show on the road.
+        </p>
+        <p>
+          Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering. Setting the
+          bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a
+          well-balanced audio which boasts a clear midrange and extended highs for a sound.
+        </p>
+        <div class="product-tabs__image-grid">
+          <div class="product-tabs__image-container"><img src="images/product/sofa-6.png" alt="" /></div>
+          <div class="product-tabs__image-container"><img src="images/product/sofa-7.png" alt="" /></div>
+        </div>
+      </div>
+
+      <div class="product-tabs__content" id="informationTab">
+        <p>
+          :)
+        </p>
+      </div>
+
+      <div class="product-tabs__content" id="reviewsTab">
+        <p>
+          Hello
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--products">
+    <div>
+      <h2 class="section__title">Related Products</h2>
+    </div>
+
+    <!-- Products grid -->
+    <div class="grid grid--4-columns" id="productsList"></div>
+
+    <a class="button button--outline" href="other-pages/shop.html">Show more</a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <!-- Company Info -->
+        <div class="footer__column footer__column--brand">
+          <h2 class="footer__brand-title">Funiro.</h2>
+          <address class="footer__address">
+            400 University Drive Suite 200 Coral Gables,<br />
+            FL 33134 USA
+          </address>
+        </div>
+
+        <!-- Links -->
+        <div class="footer__column">
+          <h3 class="footer__heading">Links</h3>
+          <nav class="footer__nav">
+            <a href="#">Home</a>
+            <a href="other-pages/shop.html">Shop</a>
+            <a href="#">About</a>
+            <a href="other-pages/contact.html">Contact</a>
+          </nav>
+        </div>
+
+        <!-- Help -->
+        <div class="footer__column">
+          <h3 class="footer__heading">Help</h3>
+          <nav class="footer__nav">
+            <a href="#">Payment Options</a>
+            <a href="#">Returns</a>
+            <a href="#">Privacy Policies</a>
+          </nav>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer__column footer__column--newsletter">
+          <h3 class="footer__heading">Newsletter</h3>
+          <form class="footer__newsletter-form">
+            <div class="footer__newsletter-wrapper">
+              <input type="email" class="footer__newsletter-input" placeholder="Enter Your Email Address" required />
+              <button type="submit" class="footer__newsletter-btn">
+                SUBSCRIBE
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">2023 furino. All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,18 +1,19 @@
 .button {
 	background-color: var(--primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	font-weight: 600;
 	color: var(--background);
 	transition: background-color 0.3s;
-	height: 48px;
+	min-height: 48px;
+	height: 100%;
 	width: 220px;
 	border-width: 1px;
 	border-style: solid;
 	border-color: var(--primary);
 	cursor: pointer;
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .button--big {
@@ -24,6 +25,16 @@
 	background: var(--background);
 }
 
+.button--outline--black {
+	color: var(--black);
+	border-color: var(--black);
+	border-radius: 15px;
+	font-size: 20px;
+	height: 64px;
+	font-weight: 400;
+	background: var(--background);
+}
+
 .button:hover {
 	color: var(--primary);
 	background: var(--background);
@@ -32,4 +43,10 @@
 .button--outline:hover {
 	color: var(--background);
 	background: var(--primary);
+}
+
+.button--outline--black:hover {
+	color: var(--background);
+	background: var(--primary);
+	border-color: var(--primary);
 }

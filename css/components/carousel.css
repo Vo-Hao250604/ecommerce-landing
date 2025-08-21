@@ -1,0 +1,48 @@
+.carousel {
+	display: flex;
+	justify-content: center;
+	padding: 12px;
+	gap: 32px;
+}
+
+.carousel__image-container {
+	background-color: var(--primary-surface);
+	display: flex;
+	align-items: center;
+	max-width: 432px;
+	height: 500px;
+	border-radius: 10px;
+}
+
+.carousel__image-container > img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.carousel__thumbs {
+	display: flex;
+	gap: 32px;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.carousel__thumbs > img {
+    cursor: pointer;
+	height: 80px;
+	width: 80px;
+	background-color: var(--primary-surface);
+	padding: 8px;
+	object-fit: contain;
+	border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+	.carousel {
+		flex-wrap: wrap-reverse;
+	}
+
+	.carousel__thumbs {
+		justify-content: space-between;
+		flex-direction: row;
+	}
+}

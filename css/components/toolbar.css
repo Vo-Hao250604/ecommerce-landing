@@ -11,14 +11,27 @@
 	font-weight: 400;
 }
 
-.toolbar__item-container {
+.toolbar--product {
+	justify-content: space-between;
+	padding-left: 100px;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.toolbar__item {
 	display: flex;
 	align-items: center;
 	gap: 24px;
 }
 
-.toolbar__item-container > * {
+.toolbar__item > * {
 	cursor: pointer;
+}
+
+.toolbar__item > a {
+	font-size: 16px;
+	text-decoration: none;
+	color: var(--gray-low);
 }
 
 .toolbar__filter-item {
@@ -40,65 +53,65 @@
 	font-weight: 400;
 }
 
+/* Icon view mặc định */
+.toolbar__item img {
+	opacity: 0.6;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.toolbar__item img:hover {
+	opacity: 1;
+	transform: scale(1.1);
+}
+
+/* Icon đang active */
+.toolbar__item img.active {
+	opacity: 1;
+	filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Layout list */
+.list-view {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+/* Card sản phẩm dạng list */
+.list-view .product-card {
+	display: flex;
+	align-items: flex-start;
+	background-color: var(--primary-surface);
+	padding: 16px;
+	border-radius: 8px;
+	gap: 20px;
+}
+
+/* Ảnh bên trái */
+.list-view .product-card__image {
+	flex: 0 0 200px;
+	height: auto;
+}
+
+.list-view .product-card__image img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+/* Nội dung bên phải */
+.list-view .product-card__content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 @media (max-width: 992px) {
 	.toolbar {
 		gap: 32px;
 		padding: 16px;
 		flex-wrap: wrap;
 	}
-}
-
-/* Icon view mặc định */
-.toolbar__item-container img {
-    opacity: 0.6;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.toolbar__item-container img:hover {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* Icon đang active */
-.toolbar__item-container img.active {
-    opacity: 1;
-    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
-}
-
-/* Layout list */
-.list-view {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Card sản phẩm dạng list */
-.list-view .product-card {
-    display: flex;
-    align-items: flex-start;
-    background-color: var(--primary-surface);
-    padding: 16px;
-    border-radius: 8px;
-    gap: 20px;
-}
-
-/* Ảnh bên trái */
-.list-view .product-card__image {
-    flex: 0 0 200px; 
-    height: auto;
-}
-
-.list-view .product-card__image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* Nội dung bên phải */
-.list-view .product-card__content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
