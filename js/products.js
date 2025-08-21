@@ -12,7 +12,7 @@ let currentSortBy = "default";
  * @param {number} [page=1] - Trang hiện tại cần tải (mặc định là 1).
  * @param {number} [limit=16] - Số lượng sản phẩm trên mỗi trang (mặc định là 16).
  * @param {string} [sortBy="default"] - Cách sắp xếp sản phẩm (mặc định là "default").
- * 
+ *
  * Hàm này sẽ gọi API để lấy danh sách sản phẩm theo trang và số lượng chỉ định.
  * Nếu không có sản phẩm, sẽ hiển thị thông báo không có sản phẩm.
  * Nếu có lỗi khi tải dữ liệu, sẽ hiển thị thông báo lỗi.
@@ -31,20 +31,22 @@ function loadProducts(page = 1, limit = 16, sortBy = "default") {
 		}
 
 		// Sắp xếp client-side
-        let sortedProducts = [...res.data];
-        if (sortBy === "Price: Low to High") {
-            sortedProducts.sort((a, b) => a.price - b.price);
-        } else if (sortBy === "Price: High to Low") {
-            sortedProducts.sort((a, b) => b.price - a.price);
-        } else if (sortBy === "Newest") {
-            // Nếu có createdAt thì dùng, nếu không thì sort theo id giảm dần
-            if (sortedProducts[0]?.createdAt) {
-                sortedProducts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-            } else {
-                sortedProducts.sort((a, b) => b.id - a.id);
-            }
+		let sortedProducts = [...res.data];
+		if (sortBy === "Price: Low to High") {
+			sortedProducts.sort((a, b) => a.price - b.price);
+		} else if (sortBy === "Price: High to Low") {
+			sortedProducts.sort((a, b) => b.price - a.price);
+		} else if (sortBy === "Newest") {
+			// Nếu có createdAt thì dùng, nếu không thì sort theo id giảm dần
+			if (sortedProducts[0]?.createdAt) {
+				sortedProducts.sort(
+					(a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+				);
+			} else {
+				sortedProducts.sort((a, b) => b.id - a.id);
+			}
 		}
-        // default thì không sắp xếp, giữ nguyên thứ tự backend trả về
+		// default thì không sắp xếp, giữ nguyên thứ tự backend trả về
 
 		// Cập nhật các biến thông tin về trang hiện tại
 		currentPage = res.page;
@@ -86,82 +88,86 @@ function renderProducts(products) {
 
 	products.forEach(function (product) {
 		productsListHtml += `
-            <div class="product-card">
-                <img
-                    src="${product.images[0]}"
-                    class="product-card__image"
-                    alt="${product.name}"
-                />
-                <div class="product-card__overlay">
-                    <button 
-                        class="product-card__button add-to-cart"
-                        data-id="${product.id}"
-                        data-name="${product.name}"
-                        data-price="${product.price}"
-                        data-images="${product.images[0]}"
-                    >
-                        Add to cart
-                    </button>
+    <div class="product-card">
+        <img
+            src="${product.images[0]}"
+            class="product-card__image"
+            alt="${product.name}"
+        />
+        <div class="product-card__overlay">
+            <button 
+                class="product-card__button add-to-cart"
+                data-id="${product.id}"
+                data-name="${product.name}"
+                data-price="${product.price}"
+                data-images="${product.images[0]}"
+            >
+                Add to cart
+            </button>
 
-                    <div class="product-card__actions">
-                        <a href="#" class="product-card__action">
-                            <img
-                                src="images/icons/share.svg"
-                                class="product-card__action-icon"
-                                alt="Share"
-                            />
-                            Share
-                        </a>
-                        <a href="#" class="product-card__action">
-                            <img
-                                src="images/icons/compare.svg"
-                                class="product-card__action-icon"
-                                alt="Compare"
-                            />
-                            Compare
-                        </a>
-                        <a href="#" class="product-card__action">
-                            <img
-                                src="images/icons/heart.svg"
-                                class="product-card__action-icon"
-                                alt="Like"
-                            />
-                            Like
-                        </a>
-                    </div>
-                </div>
+            <div class="product-card__actions">
+                <a href="#" class="product-card__action">
+                    <img
+                        src="images/icons/share.svg"
+                        class="product-card__action-icon"
+                        alt="Share"
+                    />
+                    Share
+                </a>
+                <a href="#" class="product-card__action">
+                    <img
+                        src="images/icons/compare.svg"
+                        class="product-card__action-icon"
+                        alt="Compare"
+                    />
+                    Compare
+                </a>
+                <a href="#" class="product-card__action">
+                    <img
+                        src="images/icons/heart.svg"
+                        class="product-card__action-icon"
+                        alt="Like"
+                    />
+                    Like
+                </a>
+            </div>
+        </div>
+        ${
+					product.discount
+						? `<div class="product-card__badge product-card__badge--red">-${product.discount}%</div>`
+						: product.new
+						? `<div class="product-card__badge product-card__badge--green">New</div>`
+						: ""
+				}
+        <div class="product-card__content">
+            <h3 class="product-card__title">${product.name}</h3>
+            <p class="product-card__subtitle">${product.description}</p>
+            <div class="product-card__price-container">
                 ${
 									product.discount
-										? `<div class="product-card__badge product-card__badge--red">-${product.discount}%</div>`
-										: product.new
-										? `<div class="product-card__badge product-card__badge--green">New</div>`
-										: ""
+										? `<p class="product-card__price">Rp ${formatPrice(
+												Math.round(
+													(product.price * (100 - product.discount)) / 100
+												)
+										  )}</p>
+                        <p class="product-card__old-price">Rp ${formatPrice(
+													product.price
+												)}</p>`
+										: `<p class="product-card__price">Rp ${formatPrice(
+												product.price
+										  )}</p>`
 								}
-                <div class="product-card__content">
-                    <h3 class="product-card__title">${product.name}</h3>
-                    <p class="product-card__subtitle">${product.description}</p>
-                    <div class="product-card__price-container">
-                        ${
-													product.discount
-														? `<p class="product-card__price">Rp ${formatPrice(
-																Math.round(
-																	(product.price * (100 - product.discount)) /
-																		100
-																)
-														  )}</p>
-                                <p class="product-card__old-price">Rp ${formatPrice(
-																	product.price
-																)}</p>`
-														: `<p class="product-card__price">Rp ${formatPrice(
-																product.price
-														  )}</p>`
-												}
-                    </div>
-                </div>
-            </div>`;
+            </div>
+        </div>
+    </div>`;
 	});
 
 	$("#productsList").html(productsListHtml);
+
+	// Gắn đường dẫn truy vào product
+	$(".product-card__overlay").on("click", function () {
+		window.location.href = "/other-pages/product.html";
+	});
 }
 
 /**
@@ -263,25 +269,20 @@ function setupEventHandlers() {
 
 export { loadProducts, setupEventHandlers };
 
-
 // Dạng Grid
 $("#gridViewBtn").on("click", function () {
-    $("#productsList")
-        .removeClass("list-view")
-        .addClass("grid--4-columns");
+	$("#productsList").removeClass("list-view").addClass("grid--4-columns");
 
-    $("#gridViewBtn, #listViewBtn").removeClass("active");
-    $(this).addClass("active");
+	$("#gridViewBtn, #listViewBtn").removeClass("active");
+	$(this).addClass("active");
 });
 
 // Dạng List
 $("#listViewBtn").on("click", function () {
-    $("#productsList")
-        .removeClass("grid--4-columns")
-        .addClass("list-view");
+	$("#productsList").removeClass("grid--4-columns").addClass("list-view");
 
-    $("#gridViewBtn, #listViewBtn").removeClass("active");
-    $(this).addClass("active");
+	$("#gridViewBtn, #listViewBtn").removeClass("active");
+	$(this).addClass("active");
 });
 
 /**
@@ -303,10 +304,10 @@ function addToCart(product) {
 	let cart = getCart();
 
 	// kiểm tra sản phẩm đã có trong giỏ hàng chưa
-	let existing = cart.find(item => item.id === product.id);
+	let existing = cart.find((item) => item.id === product.id);
 	if (existing) {
 		existing.quantity += 1; // nếu có thì tăng số lượng
-	}  else {
+	} else {
 		cart.push({ ...product, quantity: 1 }); // nếu không thì thêm mới
 	}
 
@@ -320,40 +321,44 @@ $(document).on("click", ".add-to-cart", function (e) {
 		id: $(this).data("id"),
 		name: $(this).data("name"),
 		price: parseFloat($(this).data("price")),
-		images: $(this).data("images")
+		images: $(this).data("images"),
 	};
 	addToCart(product);
-})
+});
 
 $(document).ready(function () {
-    // Lấy giỏ hàng từ localStorage
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+	// Lấy giỏ hàng từ localStorage
+	let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    function renderCart() {
-    let tbody = document.querySelector("#cart-table tbody");
-    tbody.innerHTML = "";
-    let subtotal = 0;
+	function renderCart() {
+		let tbody = document.querySelector("#cart-table tbody");
+		tbody.innerHTML = "";
+		let subtotal = 0;
 
-    if (cart.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">Your cart is empty</td></tr>`;
-        document.getElementById("subtotal-value").textContent = "Rs. 0.00";
-        document.getElementById("total-value").textContent = "Rs. 0.00";
-        return;
-    }
+		if (cart.length === 0) {
+			tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">Your cart is empty</td></tr>`;
+			document.getElementById("subtotal-value").textContent = "Rs. 0.00";
+			document.getElementById("total-value").textContent = "Rs. 0.00";
+			return;
+		}
 
-    cart.forEach((item, index) => {
-        let itemTotal = item.price * item.quantity;
-        subtotal += itemTotal;
+		cart.forEach((item, index) => {
+			let itemTotal = item.price * item.quantity;
+			subtotal += itemTotal;
 
-        let row = `
+			let row = `
         <tr>
             <td>
-                <img src="${item.images}" alt="${item.name}" style="width:60px; margin-right:10px; vertical-align:middle;">
+                <img src="${item.images}" alt="${
+				item.name
+			}" style="width:60px; margin-right:10px; vertical-align:middle;">
                 ${item.name}
             </td>
             <td>Rs. ${formatPrice(item.price)}</td>
             <td>
-                <input type="number" min="1" value="${item.quantity}" data-index="${index}" class="qty-input" style="width:50px;">
+                <input type="number" min="1" value="${
+									item.quantity
+								}" data-index="${index}" class="qty-input" style="width:50px;">
             </td>
             <td>Rs. ${formatPrice(itemTotal)}</td>
             <td>
@@ -363,39 +368,34 @@ $(document).ready(function () {
             </td>
         </tr>
         `;
-        tbody.innerHTML += row;
-    });
+			tbody.innerHTML += row;
+		});
 
-    document.getElementById("subtotal-value").textContent = "Rs. 0.00";
-	document.getElementById("total-value").textContent    = "Rs. 0.00";
+		document.getElementById("subtotal-value").textContent = "Rs. 0.00";
+		document.getElementById("total-value").textContent = "Rs. 0.00";
+	}
 
-}
+	// Format giá
+	function formatPrice(num) {
+		return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+	}
 
+	// Thay đổi số lượng
+	$(document).on("input", ".cart-qty", function () {
+		let index = $(this).data("index");
+		let qty = parseInt($(this).val());
+		cart[index].quantity = qty;
+		localStorage.setItem("cart", JSON.stringify(cart));
+		renderCart();
+	});
 
-    // Format giá
-    function formatPrice(num) {
-        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
+	// Xóa sản phẩm
+	$(document).on("click", ".remove-item", function () {
+		let index = $(this).data("index");
+		cart.splice(index, 1);
+		localStorage.setItem("cart", JSON.stringify(cart));
+		renderCart();
+	});
 
-    // Thay đổi số lượng
-    $(document).on("input", ".cart-qty", function () {
-        let index = $(this).data("index");
-        let qty = parseInt($(this).val());
-        cart[index].quantity = qty;
-        localStorage.setItem("cart", JSON.stringify(cart));
-        renderCart();
-    });
-
-    // Xóa sản phẩm
-    $(document).on("click", ".remove-item", function () {
-        let index = $(this).data("index");
-        cart.splice(index, 1);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        renderCart();
-    });
-
-    renderCart();
+	renderCart();
 });
-
-
-
