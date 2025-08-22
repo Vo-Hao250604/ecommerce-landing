@@ -166,7 +166,7 @@ function renderProducts(products) {
 
 	// Gắn đường dẫn truy vào product
 	$(".product-card__overlay").on("click", function () {
-		window.location.href = "/other-pages/product.html";
+		window.location.href = "other-pages/product.html";
 	});
 }
 
