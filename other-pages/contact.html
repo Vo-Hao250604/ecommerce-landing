@@ -9,16 +9,22 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="js/contact.js"></script>
+  <script src="/js/contact.js"></script>
+  <script src="/js/header.js"></script>
 </head>
 
 <body>
   <!-- === Header === -->
   <header class="header">
-    <div class="header__brand">
+    <a class="header__brand" href="/index.html">
       <img src="images/logo.svg" class="header__logo" alt="furniro logo" />
       <h2 class="header__title">Furniro</h2>
-    </div>
+    </a>
+
+    <!-- Add hamburger button -->
+    <button class="header__menu-btn" title="toggle header">
+      <span class="header__menu-icon"></span>
+    </button>
 
     <div class="header__pages">
       <a href="index.html">Home</a>
@@ -31,7 +37,9 @@
       <img src="images/icons/account.svg" alt="account" />
       <img src="images/icons/search.svg" alt="search" />
       <img src="images/icons/heart.svg" alt="likes" />
-      <img src="images/icons/cart.svg" alt="shopping cart" />
+      <a href="other-pages/cart.html" class="header__action-link">
+        <img src="images/icons/cart.svg" alt="shopping cart" />
+      </a>
     </div>
   </header>
 

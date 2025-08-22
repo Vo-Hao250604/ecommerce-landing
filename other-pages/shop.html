@@ -5,11 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shop | Furniro</title>
-
   <base href="../" />
-
   <link rel="stylesheet" href="css/style.css" />
+
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="/js/header.js"></script>
   <script type="module">
     import { loadProducts, setupEventHandlers } from "./js/products.js";
 
@@ -26,16 +26,21 @@
 <body>
   <!-- === Header === -->
   <header class="header">
-    <div class="header__brand">
+    <a class="header__brand" href="/index.html">
       <img src="images/logo.svg" class="header__logo" alt="furniro logo" />
       <h2 class="header__title">Furniro</h2>
-    </div>
+    </a>
+
+    <!-- Add hamburger button -->
+    <button class="header__menu-btn" title="toggle header">
+      <span class="header__menu-icon"></span>
+    </button>
 
     <div class="header__pages">
       <a href="index.html">Home</a>
-      <a href="/other-pages/shop.html">Shop</a>
+      <a href="other-pages/shop.html">Shop</a>
       <a href="#">About</a>
-      <a href="/other-pages/contact.html">Contact</a>
+      <a href="other-pages/contact.html">Contact</a>
     </div>
 
     <div class="header__actions">
@@ -43,7 +48,7 @@
       <img src="images/icons/search.svg" alt="search" />
       <img src="images/icons/heart.svg" alt="likes" />
       <a href="other-pages/cart.html" class="header__action-link">
-        <img src="images/icons/cart.svg" alt="shopping cart" class="icon-cart" />
+        <img src="images/icons/cart.svg" alt="shopping cart" />
       </a>
     </div>
   </header>

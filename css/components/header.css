@@ -5,6 +5,7 @@
 	height: 100px;
 	display: flex;
 	justify-content: space-around;
+	gap: 120px;
 	align-items: center;
 	padding: 0 20px;
 	backdrop-filter: blur(10px);
@@ -20,6 +21,7 @@
 .header__brand {
 	display: flex;
 	align-items: center;
+    text-decoration: none;
 	gap: 12px;
 }
 
@@ -35,6 +37,58 @@
 	color: var(--foreground);
 }
 
+/* Phần hiển thị Icon hamburger (icon mở menu khi ở chế độ mobile) */
+.header__menu-btn {
+	display: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	z-index: 100;
+}
+
+.header__menu-icon {
+	display: block;
+	width: 24px;
+	height: 2px;
+	background: var(--foreground);
+	position: relative;
+	transition: background 0.2s ease;
+}
+
+.header__menu-icon::before,
+.header__menu-icon::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: var(--foreground);
+	transition: transform 0.2s ease;
+}
+
+.header__menu-icon::before {
+	top: -6px;
+}
+
+.header__menu-icon::after {
+	bottom: -6px;
+}
+
+/* Mobile Menu Open State */
+.header.menu-open .header__menu-icon {
+	background: transparent;
+}
+
+.header.menu-open .header__menu-icon::before {
+	transform: translateY(6px) rotate(45deg);
+}
+
+.header.menu-open .header__menu-icon::after {
+	transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Các trang menu */
 .header__pages {
 	display: flex;
 	align-items: center;
@@ -42,31 +96,31 @@
 }
 
 .header__pages > a {
-    color: var(--foreground);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    position: relative;
+	color: var(--foreground);
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 16px;
+	position: relative;
 }
 
-/* Tạo hiệu ứng hover underline*/
+/* Tạo hiệu ứng hover underline */
 .header__pages > a::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--foreground);
-    transition: width 0.3s ease, left 0.3s ease;
+	content: "";
+	position: absolute;
+	bottom: -5px;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background: var(--foreground);
+	transition: width 0.3s ease, left 0.3s ease;
 }
 
 .header__pages > a:hover::after {
-    width: 100%;
-    left: 0;
+	width: 100%;
+	left: 0;
 }
 
-
+/* Các nút action */
 .header__actions {
 	display: flex;
 	align-items: center;
@@ -80,28 +134,101 @@
 	transition: opacity 0.2s ease;
 }
 
-/* Header Modifiers */
 .header__actions > img:hover {
 	opacity: 0.5;
 }
 
-.header--fixed {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 1000;
-	background: white;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 .header__action-link img {
-    cursor: pointer;
-    transition: transform 0.2s ease;
+	cursor: pointer;
+	transition: transform 0.2s ease;
 	width: 24px;
-    height: 24px;
+	height: 24px;
 	margin-top: 5px;
 }
+
 .header__action-link:hover img {
-    transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+	.header {
+		padding: 0 30px;
+		gap: 60px;
+	}
+
+	.header__pages {
+		gap: 40px;
+	}
+
+	.header__actions {
+		gap: 25px;
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		justify-content: space-between;
+		gap: 0;
+	}
+
+	.header__menu-btn {
+		display: block;
+		order: 3;
+	}
+
+	.header__pages,
+	.header__actions {
+		position: fixed;
+		top: 100px;
+		right: -100%;
+		width: 100%;
+		background: white;
+		padding: 20px;
+		transition: right 0.3s ease;
+	}
+
+	.header__pages {
+		flex-direction: column;
+		align-items: center;
+		height: 100vh;
+	}
+
+	.header__actions {
+		top: 0;
+		bottom: 0;
+		justify-content: center;
+		padding: 20px;
+		background: white;
+		box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+	}
+
+	.header.menu-open .header__pages,
+	.header.menu-open .header__actions {
+		right: 0;
+	}
+}
+
+@media (max-width: 480px) {
+	.header {
+		padding: 0 20px;
+		height: 80px;
+	}
+
+	.header-spacer {
+		height: 80px;
+	}
+
+	.header__logo {
+		width: 40px;
+		height: 26px;
+	}
+
+	.header__title {
+		font-size: 24px;
+	}
+
+	.header__pages {
+		top: 80px;
+	}
 }
