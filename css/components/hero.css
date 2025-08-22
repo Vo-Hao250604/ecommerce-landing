@@ -3,6 +3,7 @@
 	height: 90vh;
 	position: relative;
 	overflow: hidden;
+    background-color: var(--primary-background);
 }
 
 .hero--shop {
@@ -72,4 +73,68 @@
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 24px;
+}
+
+@media (max-width: 1200px) {
+	.hero {
+		/* height: 100%; */
+		position: static;
+	}
+
+	.hero__card {
+		padding: 32px;
+		min-height: 360px;
+		width: 380px;
+	}
+
+	.hero__card--home {
+		bottom: 120px;
+		right: 50px;
+	}
+
+	.hero__card__tag {
+		font-size: 14px;
+	}
+
+	.hero__card__title {
+		font-size: 32px;
+		line-height: 45px;
+	}
+
+	.hero__card__paragraph {
+		margin: 12px 0 32px 0;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 24px;
+	}
+}
+
+@media (max-width: 992px) {
+	.hero {
+		height: 90vh;
+		position: static;
+	}
+
+	.hero__image {
+		height: 50vh;
+	}
+
+	.hero__card {
+		border-radius: 0px;
+		margin: 0;
+		width: 100%;
+		position: static;
+	}
+}
+
+@media (max-width: 320px) {
+
+	.hero__card__title {
+		font-size: 28px;
+		line-height: 30px;
+	}
+
+	.hero__card__paragraph {
+		margin: 8px 0 20px 0;
+	}
 }

@@ -25,6 +25,7 @@
 @import "components/product.css";
 @import "components/product-tabs.css";
 @import "components/carousel.css";
+@import "components/shared-setup.css";
 
 /* Utils */
 @import "utils/typography.css";

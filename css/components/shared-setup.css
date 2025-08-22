@@ -1,0 +1,14 @@
+.section--share-setup {
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+}
+
+.section--share-setup > div {
+	position: absolute;
+}
+
+.section--share-setup > img {
+	height: 100%;
+	object-fit: cover;
+}
