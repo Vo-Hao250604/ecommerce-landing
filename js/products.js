@@ -312,7 +312,6 @@ function addToCart(product) {
 	}
 
 	saveCart(cart);
-	renderCartPopup(); // cập nhật giỏ hàng trong popup
 	alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
 }
 
@@ -399,56 +398,4 @@ $(document).ready(function () {
 	});
 
 	renderCart();
-});
-
-
-// Render giỏ hàng trong popup
-function renderCartPopup() {
-    let cart = getCart();
-    let container = $("#cartPopup .cart-popup__items");
-    let subtotal = 0;
-
-    container.html("");
-
-    if (cart.length === 0) {
-        container.html(`<p style="text-align:center;">Your cart is empty</p>`);
-        $("#cartPopup .subtotal strong").text("Rs. 0.00");
-        return;
-    }
-
-    cart.forEach((item, index) => {
-        let itemTotal = item.price * item.quantity;
-        subtotal += itemTotal;
-
-        let html = `
-            <div class="cart-popup__item" data-index="${index}">
-                <img src="${item.images}" alt="${item.name}">
-                <div class="info">
-                    <p>${item.name}</p>
-                    <small>${item.quantity} x <span>Rs. ${formatPrice(item.price)}</span></small>
-                </div>
-                <button class="remove">&times;</button>
-            </div>
-        `;
-        container.append(html);
-    });
-
-    $("#cartPopup .subtotal strong").text(`Rs. ${formatPrice(subtotal)}`);
-}
-
-// Xóa sản phẩm trong popup
-$(document).on("click", "#cartPopup .remove", function () {
-    let index = $(this).closest(".cart-popup__item").data("index");
-    let cart = getCart();
-    cart.splice(index, 1);
-    saveCart(cart);
-    renderCartPopup();
-});
-
-document.querySelector("#cartIcon").addEventListener("click", function () {
-    document.querySelector("#cartPopup").classList.add("show");
-    renderCartPopup(); // cập nhật giỏ hàng trong popup
-});
-document.querySelector("#closeCart").addEventListener("click", function () {
-    document.querySelector("#cartPopup").classList.remove("show");
 });

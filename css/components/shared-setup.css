@@ -1,7 +1,7 @@
 .section--share-setup {
 	position: relative;
 	height: 100vh;
-	width: 100vw;
+	overflow: hidden;
 }
 
 .section--share-setup > div {

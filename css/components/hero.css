@@ -1,9 +1,12 @@
 .hero {
 	width: 100%;
-	height: 90vh;
 	position: relative;
 	overflow: hidden;
-    background-color: var(--primary-background);
+	background-color: var(--primary-background);
+}
+
+.hero--home {
+	height: 90vh;
 }
 
 .hero--shop {
@@ -76,8 +79,7 @@
 }
 
 @media (max-width: 1200px) {
-	.hero {
-		/* height: 100%; */
+	.hero--home {
 		position: static;
 	}
 
@@ -110,7 +112,7 @@
 }
 
 @media (max-width: 992px) {
-	.hero {
+	.hero--home {
 		height: 90vh;
 		position: static;
 	}
@@ -128,7 +130,6 @@
 }
 
 @media (max-width: 320px) {
-
 	.hero__card__title {
 		font-size: 28px;
 		line-height: 30px;
